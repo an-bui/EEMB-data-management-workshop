@@ -164,11 +164,11 @@ global_catch %>%
   # creates new column of full names for fisheries
   mutate(fishery_full_name = case_when(
     # if the fishery_type is artisanal, then name it "Artisanal fishery"
-    fishery_type == "artisanal" ~ "Artisanal fishery", 
+    fishery_type == "artisanal_mil_tons" ~ "Artisanal fishery", 
     # if the fishery_type is industrial, then name it "Industrial fishery"
-    fishery_type == "industrial" ~ "Industrial fishery",
+    fishery_type == "industrial_mil_tons" ~ "Industrial fishery",
     # if the fishery_type is subsistence, then name it "Subsistence fishery"
-    fishery_type == "subsistence" ~ "Subsistence fishery"
+    fishery_type == "subsistence_mil_tons" ~ "Subsistence fishery"
   ))
 ```
 
@@ -191,11 +191,11 @@ global_catch %>%
          fishery_type = name) %>% 
   mutate(fishery_full_name = case_when(
     # if the fishery_type is artisanal, then name it "Artisanal fishery"
-    fishery_type == "artisanal" ~ "Artisanal fishery", 
+    fishery_type == "artisanal_mil_tons" ~ "Artisanal fishery", 
     # if the fishery_type is industrial, then name it "Industrial fishery"
-    fishery_type == "industrial" ~ "Industrial fishery",
+    fishery_type == "industrial_mil_tons" ~ "Industrial fishery",
     # if the fishery_type is subsistence, then name it "Subsistence fishery"
-    fishery_type == "subsistence" ~ "Subsistence fishery"
+    fishery_type == "subsistence_mil_tons" ~ "Subsistence fishery"
   )) %>% # same as above
   
   # new function: filter
@@ -231,9 +231,9 @@ global_catch_clean <- global_catch %>%
   
   # creates new column of full names for fisheries
   mutate(fishery_full_name = case_when(
-    fishery_type == "artisanal" ~ "Artisanal fishery",
-    fishery_type == "industrial" ~ "Industrial fishery",
-    fishery_type == "subsistence" ~ "Subsistence fishery"
+    fishery_type == "artisanal_mil_tons" ~ "Artisanal fishery",
+    fishery_type == "industrial_mil_tons" ~ "Industrial fishery",
+    fishery_type == "subsistence_mil_tons" ~ "Subsistence fishery"
   )) %>% 
   
   # filters data frame for observations after 1980

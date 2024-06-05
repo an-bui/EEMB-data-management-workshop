@@ -38,9 +38,9 @@ global_catch_clean <- global_catch %>%
   
   # creates new column of full names for fisheries
   mutate(fishery_full_name = case_when(
-    fishery_type == "artisanal" ~ "Artisanal fishery",
-    fishery_type == "industrial" ~ "Industrial fishery",
-    fishery_type == "subsistence" ~ "Subsistence fishery"
+    fishery_type == "artisanal_mil_tons" ~ "Artisanal fishery",
+    fishery_type == "industrial_mil_tons" ~ "Industrial fishery",
+    fishery_type == "subsistence_mil_tons" ~ "Subsistence fishery"
   )) %>% 
   
   # filters data frame for observations after 1980
@@ -55,7 +55,7 @@ Exploring your data is a _great_ way of getting to know it. There are a few basi
 
 - If you want to know **how your variable is distributed**, you can make a **histogram.**  
 - If you want to know **how a variable differs between groups**, you can make a **boxplot** or a **jitter** plot.  
-- If you want to know **how two continuous variables relate to each other**, you can make a scatterplot.  
+- If you want to know **how two continuous variables relate to each other**, you can make a **scatterplot**.  
 
 ## Tools
 
