@@ -1,40 +1,70 @@
 ---
 title: "Packages we discussed"
-execute:
-  message: false
-  warning: false
+format:
+  html:
+    number-sections: false
+
 ---
 
-## Packages we discussed
+## `library(tidyverse)`
+
+![](images/tidy_workflow.png){fig-align="center" width=70%}
+
+
+[Image source: [University of Cape Town Faculty of Science: Statistical Sciences](https://science.uct.ac.za/seec/stats-toolbox-seminars-r-packages-and-r-related-toolboxes/r-tidyverse)]{style="color: grey; font-size: 12px"}
 
 ```{r}
 library(tidyverse)
 ```
 
 A package of packages:  
-- dplyr  
-- forcats  
-- ggplot2
-- lubridate
-- purrr
-- readr
-- stringr
-- tibble
-- tidyr
+
+- `dplyr`  
+- `forcats`  
+- `ggplot2`  
+- `lubridate`  
+- `purrr`  
+- `readr`  
+- `stringr`  
+- `tibble`  
+- `tidyr`  
+
+{{< fa circle-info >}} [Package info](https://www.tidyverse.org/)
+
+## `library(here)`
+
+![](images/57457fc3-1d2d-4a3b-a9b7-f0b62e418cd5_rw_1920.png){fig-align="center" width=80%}
+
+[Artwork by [Allison Horst](https://twitter.com/allison_horst)]{style="color: grey; font-size: 12px"} 
 
 ```{r}
 library(here)
 ```
 
-Organizes your file paths
+Organizes your file paths!  
+
+{{< fa circle-info >}} [Package info](https://here.r-lib.org/)
+
+## `library(repmis)`
 
 ```{r}
 library(repmis)
 ```
 
-Reads in data from Dropbox
+Reads in data from Dropbox!
+
+{{< fa circle-info >}} [Package info](https://github.com/christophergandrud/repmis)
+
+## `library(janitor)`
+
+![](images/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png){fig-align="center" width=80%}
+
+[Artwork by [Allison Horst](https://twitter.com/allison_horst)]{style="color: grey; font-size: 12px"} 
 
 ```{r}
 library(janitor)
 ```
 
+General cleaning functions:  
+
+{{< fa circle-info >}} [Package info](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)

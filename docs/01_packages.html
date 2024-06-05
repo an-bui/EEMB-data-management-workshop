@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EEMB Data Management Workshop - 1&nbsp; Packages we discussed</title>
+<title>EEMB Data Management Workshop - Packages we discussed</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,6 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -195,7 +197,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#packages-we-discussed" id="toc-packages-we-discussed" class="nav-link active" data-scroll-target="#packages-we-discussed"><span class="header-section-number">1.1</span> Packages we discussed</a></li>
+  <li><a href="#librarytidyverse" id="toc-librarytidyverse" class="nav-link active" data-scroll-target="#librarytidyverse"><code>library(tidyverse)</code></a></li>
+  <li><a href="#libraryhere" id="toc-libraryhere" class="nav-link" data-scroll-target="#libraryhere"><code>library(here)</code></a></li>
+  <li><a href="#libraryrepmis" id="toc-libraryrepmis" class="nav-link" data-scroll-target="#libraryrepmis"><code>library(repmis)</code></a></li>
+  <li><a href="#libraryjanitor" id="toc-libraryjanitor" class="nav-link" data-scroll-target="#libraryjanitor"><code>library(janitor)</code></a></li>
   </ul>
 </nav>
     </div>
@@ -204,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Packages we discussed</span></h1>
+<h1 class="title"><span class="chapter-title">Packages we discussed</span></h1>
 </div>
 
 
@@ -221,26 +226,74 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="packages-we-discussed" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="packages-we-discussed"><span class="header-section-number">1.1</span> Packages we discussed</h2>
+<section id="librarytidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="librarytidyverse"><code>library(tidyverse)</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/tidy_workflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p><span style="color: grey; font-size: 12px">Image source: <a href="https://science.uct.ac.za/seec/stats-toolbox-seminars-r-packages-and-r-related-toolboxes/r-tidyverse">University of Cape Town Faculty of Science: Statistical Sciences</a></span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A package of packages:<br>
-- dplyr<br>
-- forcats<br>
-- ggplot2 - lubridate - purrr - readr - stringr - tibble - tidyr</p>
+<p>A package of packages:</p>
+<ul>
+<li><code>dplyr</code><br>
+</li>
+<li><code>forcats</code><br>
+</li>
+<li><code>ggplot2</code><br>
+</li>
+<li><code>lubridate</code><br>
+</li>
+<li><code>purrr</code><br>
+</li>
+<li><code>readr</code><br>
+</li>
+<li><code>stringr</code><br>
+</li>
+<li><code>tibble</code><br>
+</li>
+<li><code>tidyr</code></li>
+</ul>
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://www.tidyverse.org/">Package info</a></p>
+</section>
+<section id="libraryhere" class="level2">
+<h2 class="anchored" data-anchor-id="libraryhere"><code>library(here)</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/57457fc3-1d2d-4a3b-a9b7-f0b62e418cd5_rw_1920.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p><span style="color: grey; font-size: 12px">Artwork by <a href="https://twitter.com/allison_horst">Allison Horst</a></span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Organizes your file paths</p>
+<p>Organizes your file paths!</p>
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://here.r-lib.org/">Package info</a></p>
+</section>
+<section id="libraryrepmis" class="level2">
+<h2 class="anchored" data-anchor-id="libraryrepmis"><code>library(repmis)</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(repmis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Reads in data from Dropbox</p>
+<p>Reads in data from Dropbox!</p>
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://github.com/christophergandrud/repmis">Package info</a></p>
+</section>
+<section id="libraryjanitor" class="level2">
+<h2 class="anchored" data-anchor-id="libraryjanitor"><code>library(janitor)</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/79a12c01-0cc1-4643-b1e7-8ce8cafc947b_rw_1920.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p><span style="color: grey; font-size: 12px">Artwork by <a href="https://twitter.com/allison_horst">Allison Horst</a></span></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>General cleaning functions:</p>
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">Package info</a></p>
 
 
 </section>

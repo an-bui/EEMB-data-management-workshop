@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "EEMB Data Management Workshop",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "Preface\n\nArtwork by Allison Horst\nWhat: A data management workshop!\nFor whom: anyone who wants to learn about data management!\nWhen: Wednesday June 5 2024, 9 - 11 AM\nOrganizers: Piper Lovegreen and An Bui\nPanelists: Zoe Zilz, Caitlin Nordheim-Maestas, An Bui",
     "crumbs": [
       "Preface"
     ]
@@ -12,9 +12,49 @@
   {
     "objectID": "01_packages.html",
     "href": "01_packages.html",
-    "title": "1  Packages we discussed",
+    "title": "Packages we discussed",
     "section": "",
-    "text": "1.1 Packages we discussed\nlibrary(tidyverse)\nA package of packages:\n- dplyr\n- forcats\n- ggplot2 - lubridate - purrr - readr - stringr - tibble - tidyr\nlibrary(here)\nOrganizes your file paths\nlibrary(repmis)\nReads in data from Dropbox\nlibrary(janitor)",
+    "text": "library(tidyverse)\nImage source: University of Cape Town Faculty of Science: Statistical Sciences\nlibrary(tidyverse)\nA package of packages:\nPackage info",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Packages we discussed</span>"
+    ]
+  },
+  {
+    "objectID": "01_packages.html#librarytidyverse",
+    "href": "01_packages.html#librarytidyverse",
+    "title": "Packages we discussed",
+    "section": "",
+    "text": "dplyr\n\nforcats\n\nggplot2\n\nlubridate\n\npurrr\n\nreadr\n\nstringr\n\ntibble\n\ntidyr",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Packages we discussed</span>"
+    ]
+  },
+  {
+    "objectID": "01_packages.html#libraryhere",
+    "href": "01_packages.html#libraryhere",
+    "title": "Packages we discussed",
+    "section": "library(here)",
+    "text": "library(here)\n\n\n\n\n\nArtwork by Allison Horst\n\nlibrary(here)\n\nOrganizes your file paths!\n Package info",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Packages we discussed</span>"
+    ]
+  },
+  {
+    "objectID": "01_packages.html#libraryrepmis",
+    "href": "01_packages.html#libraryrepmis",
+    "title": "Packages we discussed",
+    "section": "library(repmis)",
+    "text": "library(repmis)\n\nlibrary(repmis)\n\nReads in data from Dropbox!\n Package info",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Packages we discussed</span>"
+    ]
+  },
+  {
+    "objectID": "01_packages.html#libraryjanitor",
+    "href": "01_packages.html#libraryjanitor",
+    "title": "Packages we discussed",
+    "section": "library(janitor)",
+    "text": "library(janitor)\n\n\n\n\n\nArtwork by Allison Horst\n\nlibrary(janitor)\n\nGeneral cleaning functions:\n Package info",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Packages we discussed</span>"
     ]
@@ -34,7 +74,7 @@
     "href": "03_looking-at-your-data.html",
     "title": "3  Looking at your data",
     "section": "",
-    "text": "3.1 Look at your data\nIn this example, we’re going to use global fishery catch data from Tidy Tuesday 2021-10-12.\nFirst: we’ll read in the data:\nlibrary(tidyverse)\nlibrary(here)\nglobal_catch &lt;- read_csv(here(\"data\", # data is in the \"data\" folder in this repository\n                         \"global-fishery-catch-by-sector.csv\")) # file name\nThen, we can look at it using glimpse().\nglimpse(global_catch)\n\nRows: 61\nColumns: 8\n$ Entity                                &lt;chr&gt; \"World\", \"World\", \"World\", \"Worl…\n$ Code                                  &lt;chr&gt; \"OWID_WRL\", \"OWID_WRL\", \"OWID_WR…\n$ Year                                  &lt;dbl&gt; 1950, 1951, 1952, 1953, 1954, 19…\n$ `Artisanal (small-scale commercial)`  &lt;dbl&gt; 7526795, 8278304, 8272109, 84692…\n$ Discards                              &lt;dbl&gt; 5874170, 6278225, 7230311, 71729…\n$ `Industrial (large-scale commercial)` &lt;dbl&gt; 14566338, 15417937, 16463942, 17…\n$ Recreational                          &lt;dbl&gt; 268260, 284319, 293558, 292070, …\n$ Subsistence                           &lt;dbl&gt; 2677833, 2704471, 2728141, 27530…\nglimpse() gives similar information as str(): use either (or both!).\nstr(global_catch)\n\nspc_tbl_ [61 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ Entity                             : chr [1:61] \"World\" \"World\" \"World\" \"World\" ...\n $ Code                               : chr [1:61] \"OWID_WRL\" \"OWID_WRL\" \"OWID_WRL\" \"OWID_WRL\" ...\n $ Year                               : num [1:61] 1950 1951 1952 1953 1954 ...\n $ Artisanal (small-scale commercial) : num [1:61] 7526795 8278304 8272109 8469284 9226926 ...\n $ Discards                           : num [1:61] 5874170 6278225 7230311 7172937 8012930 ...\n $ Industrial (large-scale commercial): num [1:61] 14566338 15417937 16463942 17163789 18340199 ...\n $ Recreational                       : num [1:61] 268260 284319 293558 292070 304398 ...\n $ Subsistence                        : num [1:61] 2677833 2704471 2728141 2753098 2895153 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   Entity = col_character(),\n  ..   Code = col_character(),\n  ..   Year = col_double(),\n  ..   `Artisanal (small-scale commercial)` = col_double(),\n  ..   Discards = col_double(),\n  ..   `Industrial (large-scale commercial)` = col_double(),\n  ..   Recreational = col_double(),\n  ..   Subsistence = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt;\ncolnames(global_catch)\n\n[1] \"Entity\"                              \"Code\"                               \n[3] \"Year\"                                \"Artisanal (small-scale commercial)\" \n[5] \"Discards\"                            \"Industrial (large-scale commercial)\"\n[7] \"Recreational\"                        \"Subsistence\"\nsample_n(global_catch,\n         size = 10)\n\n# A tibble: 10 × 8\n   Entity Code      Year Artisanal (small-scal…¹ Discards Industrial (large-sc…²\n   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;                   &lt;dbl&gt;    &lt;dbl&gt;                  &lt;dbl&gt;\n 1 World  OWID_WRL  1999                20588769 12426124               84833508\n 2 World  OWID_WRL  2008                21111836  9568906               76840638\n 3 World  OWID_WRL  1993                18031035 15118768               82746056\n 4 World  OWID_WRL  1961                10846177 11712961               30521101\n 5 World  OWID_WRL  1954                 9226926  8012930               18340199\n 6 World  OWID_WRL  1980                14688464 10500231               60489781\n 7 World  OWID_WRL  1968                12303383 13871018               55617156\n 8 World  OWID_WRL  1984                16074619 13926837               70609012\n 9 World  OWID_WRL  1975                13432664 11313080               55854975\n10 World  OWID_WRL  1985                16380243 14706334               73506569\n# ℹ abbreviated names: ¹​`Artisanal (small-scale commercial)`,\n#   ²​`Industrial (large-scale commercial)`\n# ℹ 2 more variables: Recreational &lt;dbl&gt;, Subsistence &lt;dbl&gt;\nskimr::skim(global_catch)\n\n\nData summary\n\n\nName\nglobal_catch\n\n\nNumber of rows\n61\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n2\n\n\nnumeric\n6\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nEntity\n0\n1\n5\n5\n0\n1\n0\n\n\nCode\n0\n1\n8\n8\n0\n1\n0\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nYear\n0\n1\n1980.0\n17.75\n1950\n1965\n1980\n1995\n2010\n▇▇▇▇▇\n\n\nArtisanal (small-scale commercial)\n0\n1\n15180177.2\n4255916.20\n7526795\n11653978\n14688464\n19665232\n21828623\n▅▇▆▅▇\n\n\nDiscards\n0\n1\n11834829.3\n2601005.59\n5874170\n10014530\n11712961\n13595692\n16962727\n▂▃▇▆▃\n\n\nIndustrial (large-scale commercial)\n0\n1\n59491189.3\n24241541.41\n14566338\n41475194\n62459956\n80593708\n90068159\n▃▂▃▃▇\n\n\nRecreational\n0\n1\n609926.8\n194120.54\n268260\n405857\n731511\n769491\n849021\n▃▂▁▁▇\n\n\nSubsistence\n0\n1\n3777210.0\n416715.61\n2677833\n3630156\n3911536\n4072844\n4226487\n▂▂▁▆▇",
+    "text": "3.1 Look at your data\nIn this example, we’re going to use global fishery catch data from Tidy Tuesday 2021-10-12.\nFirst: we’ll read in the data:\nlibrary(tidyverse)\nlibrary(here)\nglobal_catch &lt;- read_csv(here(\"data\", # data is in the \"data\" folder in this repository\n                         \"global-fishery-catch-by-sector.csv\")) # file name\nThen, we can look at it using glimpse().\nglimpse(global_catch)\n\nRows: 61\nColumns: 8\n$ Entity                                &lt;chr&gt; \"World\", \"World\", \"World\", \"Worl…\n$ Code                                  &lt;chr&gt; \"OWID_WRL\", \"OWID_WRL\", \"OWID_WR…\n$ Year                                  &lt;dbl&gt; 1950, 1951, 1952, 1953, 1954, 19…\n$ `Artisanal (small-scale commercial)`  &lt;dbl&gt; 7526795, 8278304, 8272109, 84692…\n$ Discards                              &lt;dbl&gt; 5874170, 6278225, 7230311, 71729…\n$ `Industrial (large-scale commercial)` &lt;dbl&gt; 14566338, 15417937, 16463942, 17…\n$ Recreational                          &lt;dbl&gt; 268260, 284319, 293558, 292070, …\n$ Subsistence                           &lt;dbl&gt; 2677833, 2704471, 2728141, 27530…\nglimpse() gives similar information as str(): use either (or both!).\nstr(global_catch)\n\nspc_tbl_ [61 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ Entity                             : chr [1:61] \"World\" \"World\" \"World\" \"World\" ...\n $ Code                               : chr [1:61] \"OWID_WRL\" \"OWID_WRL\" \"OWID_WRL\" \"OWID_WRL\" ...\n $ Year                               : num [1:61] 1950 1951 1952 1953 1954 ...\n $ Artisanal (small-scale commercial) : num [1:61] 7526795 8278304 8272109 8469284 9226926 ...\n $ Discards                           : num [1:61] 5874170 6278225 7230311 7172937 8012930 ...\n $ Industrial (large-scale commercial): num [1:61] 14566338 15417937 16463942 17163789 18340199 ...\n $ Recreational                       : num [1:61] 268260 284319 293558 292070 304398 ...\n $ Subsistence                        : num [1:61] 2677833 2704471 2728141 2753098 2895153 ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   Entity = col_character(),\n  ..   Code = col_character(),\n  ..   Year = col_double(),\n  ..   `Artisanal (small-scale commercial)` = col_double(),\n  ..   Discards = col_double(),\n  ..   `Industrial (large-scale commercial)` = col_double(),\n  ..   Recreational = col_double(),\n  ..   Subsistence = col_double()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt;\ncolnames(global_catch)\n\n[1] \"Entity\"                              \"Code\"                               \n[3] \"Year\"                                \"Artisanal (small-scale commercial)\" \n[5] \"Discards\"                            \"Industrial (large-scale commercial)\"\n[7] \"Recreational\"                        \"Subsistence\"\nsample_n(global_catch,\n         size = 10)\n\n# A tibble: 10 × 8\n   Entity Code      Year Artisanal (small-scal…¹ Discards Industrial (large-sc…²\n   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;                   &lt;dbl&gt;    &lt;dbl&gt;                  &lt;dbl&gt;\n 1 World  OWID_WRL  1956                10303408  8692551               19902604\n 2 World  OWID_WRL  2001                20046446 11506452               84201719\n 3 World  OWID_WRL  1983                15300068 12388473               65689361\n 4 World  OWID_WRL  1963                11005246 12332187               36093501\n 5 World  OWID_WRL  1952                 8272109  7230311               16463942\n 6 World  OWID_WRL  1974                13309012 11416434               56720856\n 7 World  OWID_WRL  1967                12386026 13549800               49828456\n 8 World  OWID_WRL  1955                 9545554  8340179               18728089\n 9 World  OWID_WRL  1977                13892726 10889729               59241222\n10 World  OWID_WRL  1960                10703245 10896146               25853941\n# ℹ abbreviated names: ¹​`Artisanal (small-scale commercial)`,\n#   ²​`Industrial (large-scale commercial)`\n# ℹ 2 more variables: Recreational &lt;dbl&gt;, Subsistence &lt;dbl&gt;\nskimr::skim(global_catch)\n\n\nData summary\n\n\nName\nglobal_catch\n\n\nNumber of rows\n61\n\n\nNumber of columns\n8\n\n\n_______________________\n\n\n\nColumn type frequency:\n\n\n\ncharacter\n2\n\n\nnumeric\n6\n\n\n________________________\n\n\n\nGroup variables\nNone\n\n\n\nVariable type: character\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmin\nmax\nempty\nn_unique\nwhitespace\n\n\n\n\nEntity\n0\n1\n5\n5\n0\n1\n0\n\n\nCode\n0\n1\n8\n8\n0\n1\n0\n\n\n\nVariable type: numeric\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nskim_variable\nn_missing\ncomplete_rate\nmean\nsd\np0\np25\np50\np75\np100\nhist\n\n\n\n\nYear\n0\n1\n1980.0\n17.75\n1950\n1965\n1980\n1995\n2010\n▇▇▇▇▇\n\n\nArtisanal (small-scale commercial)\n0\n1\n15180177.2\n4255916.20\n7526795\n11653978\n14688464\n19665232\n21828623\n▅▇▆▅▇\n\n\nDiscards\n0\n1\n11834829.3\n2601005.59\n5874170\n10014530\n11712961\n13595692\n16962727\n▂▃▇▆▃\n\n\nIndustrial (large-scale commercial)\n0\n1\n59491189.3\n24241541.41\n14566338\n41475194\n62459956\n80593708\n90068159\n▃▂▃▃▇\n\n\nRecreational\n0\n1\n609926.8\n194120.54\n268260\n405857\n731511\n769491\n849021\n▃▂▁▁▇\n\n\nSubsistence\n0\n1\n3777210.0\n416715.61\n2677833\n3630156\n3911536\n4072844\n4226487\n▂▂▁▆▇",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Looking at your data</span>"
     ]

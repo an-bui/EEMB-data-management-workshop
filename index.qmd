@@ -1,5 +1,15 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+![](images/209ee1eb-fd83-4e4c-9bed-82ae43b0f3e9.jpg)
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Artwork by [Allison Horst](https://twitter.com/allison_horst)    
+
+**What:** A data management workshop!  
+
+**For whom:** anyone who wants to learn about data management!  
+
+**When:** Wednesday June 5 2024, 9 - 11 AM  
+
+**Organizers:** Piper Lovegreen and An Bui  
+
+**Panelists:** Zoe Zilz, Caitlin Nordheim-Maestas, An Bui
