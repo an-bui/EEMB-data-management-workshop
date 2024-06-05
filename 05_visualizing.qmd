@@ -71,7 +71,8 @@ In a code chunk at the beginning of your document, you can use `theme_set()` to 
 ```{r}
 theme_set(
  theme_bw() + # cleaner theme
- theme(panel.grid = element_blank()) # taking the gridlines out
+ theme(panel.grid = element_blank(), # taking the gridlines out
+       text = element_text(size = 16)) # making the text bigger
 )
 ```
 
@@ -182,6 +183,8 @@ ggplot(data = global_catch_clean, # data frame
 In this example, the x-axis is year and the y-axis is catch (million tons), but you can explore any continuous variables this way!
 
 ```{r}
+#| fig-width: 10
+
 ggplot(data = global_catch_clean, # data frame
        aes(x = year, # x-axis
            y = catch_mil, # y-axis

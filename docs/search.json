@@ -334,7 +334,7 @@
     "href": "05_visualizing.html#tools",
     "title": "Visualizing your data",
     "section": "Tools",
-    "text": "Tools\nWe’ll use ggplot() from the ggplot2 package in the tidyverse for these examples!\n\n\n\n\n\n\nMaking your ggplot() objects look cohesive\n\n\n\nI like to use theme_set() to set a global “look” for my plots. This ensures that every plot in the document has the same basic aesthetic changes, while still leaving room for customization in each plot.\nIn a code chunk at the beginning of your document, you can use theme_set() to apply theme() elements to all the plots you make:\n\ntheme_set(\n theme_bw() + # cleaner theme\n theme(panel.grid = element_blank()) # taking the gridlines out\n)",
+    "text": "Tools\nWe’ll use ggplot() from the ggplot2 package in the tidyverse for these examples!\n\n\n\n\n\n\nMaking your ggplot() objects look cohesive\n\n\n\nI like to use theme_set() to set a global “look” for my plots. This ensures that every plot in the document has the same basic aesthetic changes, while still leaving room for customization in each plot.\nIn a code chunk at the beginning of your document, you can use theme_set() to apply theme() elements to all the plots you make:\n\ntheme_set(\n theme_bw() + # cleaner theme\n theme(panel.grid = element_blank(), # taking the gridlines out\n       text = element_text(size = 16)) # making the text bigger\n)",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Visualizing your data</span>"
     ]
