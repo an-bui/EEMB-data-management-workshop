@@ -117,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_packages.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Packages we discussed</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_packages.html"><span class="chapter-title">Packages we discussed</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,32 +153,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_packages.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Packages we discussed</span></span></a>
+  <a href="./01_packages.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Packages we discussed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_reading-your-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></span></a>
+  <a href="./02_reading-your-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reading your data into RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Looking at your data</span></span></a>
+  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Looking at your data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cleaning</span></span></a>
+  <a href="./04_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cleaning</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_visualizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualizing</span></span></a>
+  <a href="./05_visualizing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visualizing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -201,6 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#libraryhere" id="toc-libraryhere" class="nav-link" data-scroll-target="#libraryhere"><code>library(here)</code></a></li>
   <li><a href="#libraryrepmis" id="toc-libraryrepmis" class="nav-link" data-scroll-target="#libraryrepmis"><code>library(repmis)</code></a></li>
   <li><a href="#libraryjanitor" id="toc-libraryjanitor" class="nav-link" data-scroll-target="#libraryjanitor"><code>library(janitor)</code></a></li>
+  <li><a href="#librarygooglesheets4" id="toc-librarygooglesheets4" class="nav-link" data-scroll-target="#librarygooglesheets4"><code>library(googlesheets4)</code></a></li>
+  <li><a href="#libraryskimr" id="toc-libraryskimr" class="nav-link" data-scroll-target="#libraryskimr"><code>library(skimr)</code></a></li>
   </ul>
 </nav>
     </div>
@@ -294,6 +291,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>General cleaning functions:</p>
 <p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html">Package info</a></p>
+</section>
+<section id="librarygooglesheets4" class="level2">
+<h2 class="anchored" data-anchor-id="librarygooglesheets4"><code>library(googlesheets4)</code></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/googlesheets4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Reads data in from Google Sheets!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://googlesheets4.tidyverse.org/">Package info</a></p>
+</section>
+<section id="libraryskimr" class="level2">
+<h2 class="anchored" data-anchor-id="libraryskimr"><code>library(skimr)</code></h2>
+<p>Gives you a quick idea of what’s going on with your data!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><i class="fa-solid fa-circle-info" aria-label="circle-info"></i> <a href="https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html">Package info</a></p>
 
 
 </section>
@@ -715,8 +733,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_reading-your-data.html" class="pagination-link" aria-label="Reading your data">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_reading-your-data.html" class="pagination-link" aria-label="Reading your data into RStudio">
+        <span class="nav-page-text"><span class="chapter-title">Reading your data into RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

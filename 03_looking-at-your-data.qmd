@@ -5,47 +5,65 @@ execute:
   warning: false
 ---
 
-
-## Look at your data
+## Data source
 
 In this example, we're going to use global fishery catch data from [Tidy Tuesday 2021-10-12](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-12/readme.md).  
 
-First: we'll read in the data:
+## Set up
+
+First, we'll read in the packages we need:
 
 ```{r}
-library(tidyverse)
-library(here)
+library(tidyverse) # general use
+library(here) # file path organization
+library(skimr) # quick summary stats 
 ```
 
+Then, we'll read in the data: 
 
 ```{r}
+# creating a new object called `global_catch`
 global_catch <- read_csv(here("data", # data is in the "data" folder in this repository
-                         "global-fishery-catch-by-sector.csv")) # file name
+                              "global-fishery-catch-by-sector.csv")) # file name
 ```
 
-Then, we can look at it using `glimpse().`
+## Quick look at the data using `glimpse()` and `str()`
+
+`glimpse()` and `str()` both give a sense of the kinds of variables (numeric, factor, etc.) that are in each column, along with the contents of the columns and the column names.  
+
+`glimpse()` gives similar information as `str()`: use either (or both!).
 
 ```{r}
 glimpse(global_catch)
 ```
 
-`glimpse()` gives similar information as `str()`: use either (or both!).
-
 ```{r}
 str(global_catch)
 ```
+
+## Getting the column names using `colnames()`
+
+You'll be using the column names of your data frame _a lot_ - you can use `colnames()` to figure out what the names actually are.
 
 ```{r}
 colnames(global_catch)
 ```
 
-```{r}
-sample_n(global_catch,
-         size = 10)
-```
+## A random sample of rows using `sample_n()`
+
+You can get a quick look at a random sample of rows from the data frame using `sample_n()` to get a sense of what each row might look like.
 
 ```{r}
-skimr::skim(global_catch)
+sample_n(global_catch, # the data frame
+         size = 10) # the number of rows to view
+```
+
+## Summary stats and more with `skim()`
+
+The `skim()` function in the `skimr` package gives you a bunch of summary information about the data in each column. Note that this is _a lot_ of information, but if you want some broad brush strokes level summary (e.g. what's the mean in each column?), then `skim()` might be a good option!
+
+```{r}
+skim(global_catch)
 ```
 
 

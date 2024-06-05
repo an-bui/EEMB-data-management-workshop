@@ -5,9 +5,9 @@ execute:
   warning: false
 ---
 
-## Clean it up
-
 ```{r}
+#| echo: false
+
 library(tidyverse)
 library(janitor)
 library(here)
@@ -16,6 +16,21 @@ global_catch <- read_csv(here("data", # data is in the "data" folder in this rep
                          "global-fishery-catch-by-sector.csv")) # file name
 ```
 
+## Cleaning up
+
+We're going to keep using the data from the "Looking at your data" section, but now we're going to clean it. The big functions we'll use are:  
+
+- `clean_names()`: cleans up column names  
+- `mutate()`: creates new columns, changes columns (very powerful when used with `case_when()`)  
+- `select()`: _selects_ columns from a data frame
+- `pivot_longer()`: puts the data frame in "long format" (each row is an observation)  
+- `rename()`: renames columns
+- `filter()`: filters data frame
+
+## Making column names nicer 
+
+{{< fa rocket >}} **Function:** `clean_names()`  
+{{< fa cube >}} **Package:** `janitor`
 
 ```{r}
 global_catch %>% 
@@ -23,6 +38,13 @@ global_catch %>%
   # makes the column names nicer! compare this with the column names from `colnames(global_catch)` output from above
   clean_names()
 ```
+
+## Creating new columns
+
+{{< fa rocket >}} **Function:** `mutate()`  
+{{< fa cube >}} **Package:** `dplyr` (in `tidyverse`)  
+
+In this line of code, we're calculating catch in million tons.
 
 ```{r}
 global_catch %>% 
@@ -34,6 +56,11 @@ global_catch %>%
          industrial = industrial_large_scale_commercial/1000000)
 ```
 
+## Selecting columns of interest
+
+{{< fa rocket >}} **Function:** `select()`  
+{{< fa cube >}} **Package:** `dplyr` (in `tidyverse`)  
+
 ```{r}
 global_catch %>% 
   clean_names() %>% 
@@ -44,6 +71,11 @@ global_catch %>%
   # select the columns you're interested in 
   select(year, artisanal, industrial)
 ```
+
+## Putting the data frame in long format
+
+{{< fa rocket >}} **Function:** `pivot_longer()`  
+{{< fa cube >}} **Package:** `dplyr` (in `tidyverse`)  
 
 ```{r}
 global_catch %>% 
@@ -57,6 +89,16 @@ global_catch %>%
   # in this case, each row is a fishery with some catch (in million tons) in a given year
   pivot_longer(cols = artisanal:industrial)
 ```
+
+:::{.callout-note}
+### Compare this with the output from the "Creating new columns" section
+There are still 3 columns in this data frame, but now there's a column called `name` and another called `value`. Each row is the catch in million tons for a fisher (either `artisanal` or `industrial`) in a given year.
+:::
+
+## Renaming columns
+
+{{< fa rocket >}} **Function:** `rename`()`  
+{{< fa cube >}} **Package:** `dplyr` (in `tidyverse`)  
 
 ```{r}
 global_catch %>% 
@@ -73,6 +115,13 @@ global_catch %>%
          fishery_type = name) 
 ```
 
+## Creating a new column based on an existing column
+
+{{< fa rocket >}} **Function:** `case_when()` and `mutate()`    
+{{< fa cube >}} **Package:** `dplyr` (in `tidyverse`)  
+
+This creates a new column with the "full name" for each fishery!
+
 ```{r}
 global_catch %>% 
   clean_names() %>% 
@@ -86,10 +135,19 @@ global_catch %>%
   # new function: mutate with case_when
   # creates new column of full names for fisheries
   mutate(fishery_full_name = case_when(
-    fishery_type == "artisanal" ~ "Artisanal fishery",
+    # if the fishery_type is artisanal, then name it "Artisanal fishery"
+    fishery_type == "artisanal" ~ "Artisanal fishery", 
+    # if the fishery_type is industrial, then name it "Industrial fishery"
     fishery_type == "industrial" ~ "Industrial fishery"
   ))
 ```
+
+## Filtering the data frame based on what's in a column
+
+{{< fa rocket >}} **Function:** `filter()`   
+{{< fa cube >}} **Package:** `dplyr` (in `tidyverse`)  
+
+This filters the data frame to only include observations after 1980 in the `year` column.
 
 ```{r}
 global_catch %>% 
@@ -109,6 +167,9 @@ global_catch %>%
   # filters data frame for observations after 1980
   filter(year > 1980)
 ```
+
+
+## Putting it all together
 
 All together to create a data frame called `global_catch_clean`
 
@@ -141,3 +202,13 @@ global_catch_clean <- global_catch %>%
   # filters data frame for observations after 1980
   filter(year > 1980)
 ```
+
+And just a quick look at this:
+
+```{r}
+sample_n(global_catch_clean,
+         size = 10)
+```
+
+
+

@@ -1,9 +1,5 @@
 ---
 title: "Packages we discussed"
-format:
-  html:
-    number-sections: false
-
 ---
 
 ## `library(tidyverse)`
@@ -68,3 +64,26 @@ library(janitor)
 General cleaning functions:  
 
 {{< fa circle-info >}} [Package info](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html)
+
+## `library(googlesheets4)`
+
+![](images/googlesheets4.png){fig-align="center"}
+
+Reads data in from Google Sheets!  
+
+```{r}
+library(googlesheets4)
+```
+
+
+{{< fa circle-info >}} [Package info](https://googlesheets4.tidyverse.org/)
+
+## `library(skimr)`
+
+Gives you a quick idea of what's going on with your data!
+
+```{r}
+library(skimr)
+```
+
+{{< fa circle-info >}} [Package info](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html)

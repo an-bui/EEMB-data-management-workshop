@@ -1,21 +1,16 @@
 ---
-title: "Reading your data"
+title: "Reading your data into RStudio"
 execute:
-  message: false
-  warning: false
   eval: false
 ---
 
-## Reading your data into RStudio
+# Ways to read in data
 
-If your file is in a folder called "data" like in this repository:
+There are lots of ways that you can read your data into RStudio, depending on the format of your data (.csv, .xlsx, etc.) and where it is (for example, if you have a folder called `data` in which your data lives, or if your data is in the same folder as your code).  
 
-```{r}
-#| eval: false
+These are a few examples of different ways of reading in your data, but experiment with different set ups to see what works for you!
 
-test_data <- read_csv(here("data", # folder name: data
-                           "data.csv")) # file name: data.csv
-```
+## If your file is a `.csv`
 
 If your file is in the root directory (i.e. the same folder as the .Rproj file)
 
@@ -25,7 +20,22 @@ If your file is in the root directory (i.e. the same folder as the .Rproj file)
 test_data <- read_csv("data.csv") # just the file name
 ```
 
-If your file is an Excel sheet:
+## Using the `here` package
+
+`here` allows you to specify file paths without using relative file paths (like slashes). This makes it easier for people on different operating systems to use your code.  
+
+In this example, the `data.csv` is in a folder called `data`.  
+
+`read_csv()` wraps around the `here("data", "data.csv")` function to read in the `data.csv` file in the `data` folder.
+
+```{r}
+#| eval: false
+
+test_data <- read_csv(here("data", # folder name: data
+                           "data.csv")) # file name: data.csv
+```
+
+## If your file is a `.xlsx`
 
 ```{r}
 #| eval: false
@@ -35,15 +45,17 @@ data_from_excel <- read_xlsx("data.xlsx", # file name
                              na = c("NA")) # explicitly name what the NAs are in the sheet - not necessary, but sometimes nice!
 ```
 
-If your file is on Dropbox: 
+## If your file is on Dropbox:
 
 ```{r}
 #| eval: false
 
-data_from_dropbox <- source_data("share link goes here") # paste the share link, change dl=0 to dl=1 at the end (dono't know why but it works!)
+data_from_dropbox <- source_data("share link goes here") # paste the share link, change dl=0 to dl=1 at the end (don't know why but it works!)
 ```
 
-If your file is on google sheets:
+[Directions](https://github.com/lecy/Import-Data-Into-R/blob/master/import%20from%20dropbox.md)
+
+## If your file is on Google Sheets:
 
 ```{r}
 #| eval: false
@@ -55,4 +67,9 @@ data_from_google_sheets <- read_sheet(sheet_id, # the sheet id that you stored a
                                       sheet = "insert sheet name here") # if you have multiple sheets, you can select the sheet you want
 ```
 
+:::{.callout-note}
+## Authentication with `googlesheets4`
+
 Note that when you run this, `googlesheets4` will ask for authentication. Critically, this only works if you are there to interact with the package (i.e. actually authenticate yourself); therefore, this _is not a good option_ if you are rendering/knitting your code. One solution is to make the sheet public (which isn't always ideal). Another solution is to have a separate script in your project that reads stuff in from Google Sheets and creates .csv files on your computer, and use the .csv files downloaded from Google Sheets in your down stream analysis. 
+:::
+

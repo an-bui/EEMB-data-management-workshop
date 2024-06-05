@@ -21,6 +21,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    number-sections: false
   pdf:
     documentclass: scrreprt
 execute:

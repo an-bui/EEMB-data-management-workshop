@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EEMB Data Management Workshop - 2&nbsp; Reading your data</title>
+<title>EEMB Data Management Workshop - Reading your data into RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_reading-your-data.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_reading-your-data.html"><span class="chapter-title">Reading your data into RStudio</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,32 +151,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Packages we discussed</span></span></a>
+  <a href="./01_packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Packages we discussed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_reading-your-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></span></a>
+  <a href="./02_reading-your-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Reading your data into RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Looking at your data</span></span></a>
+  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Looking at your data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cleaning</span></span></a>
+  <a href="./04_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cleaning</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_visualizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualizing</span></span></a>
+  <a href="./05_visualizing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visualizing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,7 +190,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#reading-your-data-into-rstudio" id="toc-reading-your-data-into-rstudio" class="nav-link active" data-scroll-target="#reading-your-data-into-rstudio"><span class="header-section-number">2.1</span> Reading your data into RStudio</a></li>
+  <li><a href="#ways-to-read-in-data" id="toc-ways-to-read-in-data" class="nav-link active" data-scroll-target="#ways-to-read-in-data">Ways to read in data</a>
+  <ul class="collapse">
+  <li><a href="#if-your-file-is-a-.csv" id="toc-if-your-file-is-a-.csv" class="nav-link" data-scroll-target="#if-your-file-is-a-.csv">If your file is a <code>.csv</code></a></li>
+  <li><a href="#using-the-here-package" id="toc-using-the-here-package" class="nav-link" data-scroll-target="#using-the-here-package">Using the <code>here</code> package</a></li>
+  <li><a href="#if-your-file-is-a-.xlsx" id="toc-if-your-file-is-a-.xlsx" class="nav-link" data-scroll-target="#if-your-file-is-a-.xlsx">If your file is a <code>.xlsx</code></a></li>
+  <li><a href="#if-your-file-is-on-dropbox" id="toc-if-your-file-is-on-dropbox" class="nav-link" data-scroll-target="#if-your-file-is-on-dropbox">If your file is on Dropbox:</a></li>
+  <li><a href="#if-your-file-is-on-google-sheets" id="toc-if-your-file-is-on-google-sheets" class="nav-link" data-scroll-target="#if-your-file-is-on-google-sheets">If your file is on Google Sheets:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -204,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></h1>
+<h1 class="title"><span class="chapter-title">Reading your data into RStudio</span></h1>
 </div>
 
 
@@ -221,28 +223,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="reading-your-data-into-rstudio" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="reading-your-data-into-rstudio"><span class="header-section-number">2.1</span> Reading your data into RStudio</h2>
-<p>If your file is in a folder called “data” like in this repository:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="co"># folder name: data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"data.csv"</span>)) <span class="co"># file name: data.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="ways-to-read-in-data" class="level1">
+<h1>Ways to read in data</h1>
+<p>There are lots of ways that you can read your data into RStudio, depending on the format of your data (.csv, .xlsx, etc.) and where it is (for example, if you have a folder called <code>data</code> in which your data lives, or if your data is in the same folder as your code).</p>
+<p>These are a few examples of different ways of reading in your data, but experiment with different set ups to see what works for you!</p>
+<section id="if-your-file-is-a-.csv" class="level2">
+<h2 class="anchored" data-anchor-id="if-your-file-is-a-.csv">If your file is a <code>.csv</code></h2>
 <p>If your file is in the root directory (i.e.&nbsp;the same folder as the .Rproj file)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data.csv"</span>) <span class="co"># just the file name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data.csv"</span>) <span class="co"># just the file name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If your file is an Excel sheet:</p>
+</section>
+<section id="using-the-here-package" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-here-package">Using the <code>here</code> package</h2>
+<p><code>here</code> allows you to specify file paths without using relative file paths (like slashes). This makes it easier for people on different operating systems to use your code.</p>
+<p>In this example, the <code>data.csv</code> is in a folder called <code>data</code>.</p>
+<p><code>read_csv()</code> wraps around the <code>here("data", "data.csv")</code> function to read in the <code>data.csv</code> file in the <code>data</code> folder.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="co"># folder name: data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"data.csv"</span>)) <span class="co"># file name: data.csv</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="if-your-file-is-a-.xlsx" class="level2">
+<h2 class="anchored" data-anchor-id="if-your-file-is-a-.xlsx">If your file is a <code>.xlsx</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data_from_excel <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"data.xlsx"</span>, <span class="co"># file name</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                             <span class="at">sheet =</span> <span class="st">"This is the sheet name"</span>, <span class="co"># if there are multiple sheets in the .xlsx file</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                             <span class="at">na =</span> <span class="fu">c</span>(<span class="st">"NA"</span>)) <span class="co"># explicitly name what the NAs are in the sheet - not necessary, but sometimes nice!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If your file is on Dropbox:</p>
+</section>
+<section id="if-your-file-is-on-dropbox" class="level2">
+<h2 class="anchored" data-anchor-id="if-your-file-is-on-dropbox">If your file is on Dropbox:</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_from_dropbox <span class="ot">&lt;-</span> <span class="fu">source_data</span>(<span class="st">"share link goes here"</span>) <span class="co"># paste the share link, change dl=0 to dl=1 at the end (dono't know why but it works!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_from_dropbox <span class="ot">&lt;-</span> <span class="fu">source_data</span>(<span class="st">"share link goes here"</span>) <span class="co"># paste the share link, change dl=0 to dl=1 at the end (don't know why but it works!)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>If your file is on google sheets:</p>
+<p><a href="https://github.com/lecy/Import-Data-Into-R/blob/master/import%20from%20dropbox.md">Directions</a></p>
+</section>
+<section id="if-your-file-is-on-google-sheets" class="level2">
+<h2 class="anchored" data-anchor-id="if-your-file-is-on-google-sheets">If your file is on Google Sheets:</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the sheet id from the url</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sheet_id <span class="ot">&lt;-</span> <span class="st">"insert sheet id here"</span></span>
@@ -250,9 +268,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data_from_google_sheets <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(sheet_id, <span class="co"># the sheet id that you stored above</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">sheet =</span> <span class="st">"insert sheet name here"</span>) <span class="co"># if you have multiple sheets, you can select the sheet you want</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Authentication with <code>googlesheets4</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Note that when you run this, <code>googlesheets4</code> will ask for authentication. Critically, this only works if you are there to interact with the package (i.e.&nbsp;actually authenticate yourself); therefore, this <em>is not a good option</em> if you are rendering/knitting your code. One solution is to make the sheet public (which isn’t always ideal). Another solution is to have a separate script in your project that reads stuff in from Google Sheets and creates .csv files on your computer, and use the .csv files downloaded from Google Sheets in your down stream analysis.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -668,12 +699,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01_packages.html" class="pagination-link" aria-label="Packages we discussed">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Packages we discussed</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Packages we discussed</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./03_looking-at-your-data.html" class="pagination-link" aria-label="Looking at your data">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Looking at your data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Looking at your data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

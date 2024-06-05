@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EEMB Data Management Workshop - 3&nbsp; Looking at your data</title>
+<title>EEMB Data Management Workshop - Looking at your data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,7 +115,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_looking-at-your-data.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Looking at your data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_looking-at-your-data.html"><span class="chapter-title">Looking at your data</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,32 +151,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Packages we discussed</span></span></a>
+  <a href="./01_packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Packages we discussed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_reading-your-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></span></a>
+  <a href="./02_reading-your-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reading your data into RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Looking at your data</span></span></a>
+  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Looking at your data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cleaning</span></span></a>
+  <a href="./04_cleaning.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cleaning</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_visualizing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualizing</span></span></a>
+  <a href="./05_visualizing.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Visualizing</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -195,7 +190,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#look-at-your-data" id="toc-look-at-your-data" class="nav-link active" data-scroll-target="#look-at-your-data"><span class="header-section-number">3.1</span> Look at your data</a></li>
+  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data source</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a></li>
+  <li><a href="#quick-look-at-the-data-using-glimpse-and-str" id="toc-quick-look-at-the-data-using-glimpse-and-str" class="nav-link" data-scroll-target="#quick-look-at-the-data-using-glimpse-and-str">Quick look at the data using <code>glimpse()</code> and <code>str()</code></a></li>
+  <li><a href="#getting-the-column-names-using-colnames" id="toc-getting-the-column-names-using-colnames" class="nav-link" data-scroll-target="#getting-the-column-names-using-colnames">Getting the column names using <code>colnames()</code></a></li>
+  <li><a href="#a-random-sample-of-rows-using-sample_n" id="toc-a-random-sample-of-rows-using-sample_n" class="nav-link" data-scroll-target="#a-random-sample-of-rows-using-sample_n">A random sample of rows using <code>sample_n()</code></a></li>
+  <li><a href="#summary-stats-and-more-with-skim" id="toc-summary-stats-and-more-with-skim" class="nav-link" data-scroll-target="#summary-stats-and-more-with-skim">Summary stats and more with <code>skim()</code></a></li>
   </ul>
 </nav>
     </div>
@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Looking at your data</span></h1>
+<h1 class="title"><span class="chapter-title">Looking at your data</span></h1>
 </div>
 
 
@@ -221,19 +221,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="look-at-your-data" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="look-at-your-data"><span class="header-section-number">3.1</span> Look at your data</h2>
+<section id="data-source" class="level2">
+<h2 class="anchored" data-anchor-id="data-source">Data source</h2>
 <p>In this example, we’re going to use global fishery catch data from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-12/readme.md">Tidy Tuesday 2021-10-12</a>.</p>
-<p>First: we’ll read in the data:</p>
+</section>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set up</h2>
+<p>First, we’ll read in the packages we need:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># general use</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here) <span class="co"># file path organization</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr) <span class="co"># quick summary stats </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Then, we’ll read in the data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>global_catch <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="co"># data is in the "data" folder in this repository</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"global-fishery-catch-by-sector.csv"</span>)) <span class="co"># file name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new object called `global_catch`</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>global_catch <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="co"># data is in the "data" folder in this repository</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"global-fishery-catch-by-sector.csv"</span>)) <span class="co"># file name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then, we can look at it using <code>glimpse().</code></p>
+</section>
+<section id="quick-look-at-the-data-using-glimpse-and-str" class="level2">
+<h2 class="anchored" data-anchor-id="quick-look-at-the-data-using-glimpse-and-str">Quick look at the data using <code>glimpse()</code> and <code>str()</code></h2>
+<p><code>glimpse()</code> and <code>str()</code> both give a sense of the kinds of variables (numeric, factor, etc.) that are in each column, along with the contents of the columns and the column names.</p>
+<p><code>glimpse()</code> gives similar information as <code>str()</code>: use either (or both!).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -249,7 +259,6 @@ $ Recreational                          &lt;dbl&gt; 268260, 284319, 293558, 2920
 $ Subsistence                           &lt;dbl&gt; 2677833, 2704471, 2728141, 27530…</code></pre>
 </div>
 </div>
-<p><code>glimpse()</code> gives similar information as <code>str()</code>: use either (or both!).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -276,6 +285,10 @@ $ Subsistence                           &lt;dbl&gt; 2677833, 2704471, 2728141, 2
  - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
 </div>
 </div>
+</section>
+<section id="getting-the-column-names-using-colnames" class="level2">
+<h2 class="anchored" data-anchor-id="getting-the-column-names-using-colnames">Getting the column names using <code>colnames()</code></h2>
+<p>You’ll be using the column names of your data frame <em>a lot</em> - you can use <code>colnames()</code> to figure out what the names actually are.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -285,30 +298,38 @@ $ Subsistence                           &lt;dbl&gt; 2677833, 2704471, 2728141, 2
 [7] "Recreational"                        "Subsistence"                        </code></pre>
 </div>
 </div>
+</section>
+<section id="a-random-sample-of-rows-using-sample_n" class="level2">
+<h2 class="anchored" data-anchor-id="a-random-sample-of-rows-using-sample_n">A random sample of rows using <code>sample_n()</code></h2>
+<p>You can get a quick look at a random sample of rows from the data frame using <code>sample_n()</code> to get a sense of what each row might look like.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(global_catch,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(global_catch, <span class="co"># the data frame</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">10</span>) <span class="co"># the number of rows to view</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 8
    Entity Code      Year Artisanal (small-scal…¹ Discards Industrial (large-sc…²
    &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;                   &lt;dbl&gt;    &lt;dbl&gt;                  &lt;dbl&gt;
- 1 World  OWID_WRL  1956                10303408  8692551               19902604
- 2 World  OWID_WRL  2001                20046446 11506452               84201719
- 3 World  OWID_WRL  1983                15300068 12388473               65689361
- 4 World  OWID_WRL  1963                11005246 12332187               36093501
- 5 World  OWID_WRL  1952                 8272109  7230311               16463942
- 6 World  OWID_WRL  1974                13309012 11416434               56720856
- 7 World  OWID_WRL  1967                12386026 13549800               49828456
- 8 World  OWID_WRL  1955                 9545554  8340179               18728089
- 9 World  OWID_WRL  1977                13892726 10889729               59241222
-10 World  OWID_WRL  1960                10703245 10896146               25853941
+ 1 World  OWID_WRL  1986                16227297 15091641               78606140
+ 2 World  OWID_WRL  1972                12753562 12357980               51789011
+ 3 World  OWID_WRL  1969                12211407 12761884               52626777
+ 4 World  OWID_WRL  1987                17449809 15669889               79755589
+ 5 World  OWID_WRL  1992                18417117 15717869               81793283
+ 6 World  OWID_WRL  1999                20588769 12426124               84833508
+ 7 World  OWID_WRL  1980                14688464 10500231               60489781
+ 8 World  OWID_WRL  1976                13761132 11095856               59084000
+ 9 World  OWID_WRL  1975                13432664 11313080               55854975
+10 World  OWID_WRL  1998                20332081 13154260               79574228
 # ℹ abbreviated names: ¹​`Artisanal (small-scale commercial)`,
 #   ²​`Industrial (large-scale commercial)`
 # ℹ 2 more variables: Recreational &lt;dbl&gt;, Subsistence &lt;dbl&gt;</code></pre>
 </div>
 </div>
+</section>
+<section id="summary-stats-and-more-with-skim" class="level2">
+<h2 class="anchored" data-anchor-id="summary-stats-and-more-with-skim">Summary stats and more with <code>skim()</code></h2>
+<p>The <code>skim()</code> function in the <code>skimr</code> package gives you a bunch of summary information about the data in each column. Note that this is <em>a lot</em> of information, but if you want some broad brush strokes level summary (e.g.&nbsp;what’s the mean in each column?), then <code>skim()</code> might be a good option!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>Data summary</caption>
@@ -927,13 +948,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_reading-your-data.html" class="pagination-link" aria-label="Reading your data">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Reading your data</span></span>
+      <a href="./02_reading-your-data.html" class="pagination-link" aria-label="Reading your data into RStudio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reading your data into RStudio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./04_cleaning.html" class="pagination-link" aria-label="Cleaning">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-title">Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
