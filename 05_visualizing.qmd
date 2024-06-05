@@ -86,7 +86,7 @@ For this example, we'll create a histogram for the artisanal fishery.
 ```{r}
 artisanal <- global_catch_clean %>% 
   # filtering for artisanal fishery only
-  filter(fishery_type == "artisanal")
+  filter(fishery_type == "artisanal_mil_tons")
 
 # global ggplot call
 ggplot(data = artisanal, # the data frame
