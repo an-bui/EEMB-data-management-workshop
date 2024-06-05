@@ -4,6 +4,8 @@
 
 Artwork by [Allison Horst](https://twitter.com/allison_horst)    
 
+[**Workshop slides**](https://docs.google.com/presentation/d/1NayKP6EEfAmzpbNqxrOUjwpmJ6NmdHCximuJ20KVt0s/edit?usp=sharing)  
+
 **What:** This is the accompanying code guide for all the functions we talked about in our workshop.  Hopefully you find this helpful!
 
 **For whom:** anyone who wants to get started with data processing in R!  
