@@ -1,0 +1,98 @@
+---
+title: "Visualizing"
+---
+
+## Visualize it
+
+```{r}
+library(tidyverse)
+library(janitor)
+library(here)
+
+global_catch <- read_csv(here("data", # data is in the "data" folder in this repository
+                         "global-fishery-catch-by-sector.csv")) # file name
+
+global_catch_clean <- global_catch %>% 
+  
+  # makes the column names nicer
+  clean_names() %>% 
+  
+  # divides catch by 1000000 to calculate catch in million tons
+  mutate(artisanal = artisanal_small_scale_commercial/1000000,
+         industrial = industrial_large_scale_commercial/1000000) %>% 
+  
+  # selecting columns
+  select(year, artisanal, industrial) %>% 
+  
+  # put the data frame in long format: each row is an observation
+  pivot_longer(cols = artisanal:industrial) %>% 
+  
+  # renames columns so that they are easier to understand
+  rename(catch_mil = value,
+         fishery_type = name) %>% 
+  
+  # creates new column of full names for fisheries
+  mutate(fishery_full_name = case_when(
+    fishery_type == "artisanal" ~ "Artisanal fishery",
+    fishery_type == "industrial" ~ "Industrial fishery"
+  )) %>% 
+  
+  # filters data frame for observations after 1980
+  filter(year > 1980)
+```
+
+Histogram:
+
+```{r}
+# for this example, only going to use the artisanal fishery
+artisanal <- global_catch_clean %>% 
+  filter(fishery_type == "artisanal")
+
+# global ggplot call
+ggplot(data = artisanal, # the data frame
+       aes(x = catch_mil)) + # the x-axis
+  
+  # creating a histogram
+  geom_histogram(bins = 7, # number of columns/bins
+                 fill = "darkgreen", # filling the bars in green
+                 color = "black") + # outline of the bars: black
+  
+  # extra stuff to make your plot look nicer
+  scale_y_continuous(expand = c(0, 0), # gets rid of the space below the bars
+                     limits = c(0, 9)) + # sets the limits of the y-axis
+  theme_bw() # clears out the grey background
+```
+
+```{r}
+# simple way to create a jitter plot
+ggplot(data = global_catch_clean, # data frame
+       aes(x = fishery_full_name, # x-axis
+           y = catch_mil)) + # y-axis
+  geom_jitter()
+
+# a way with a little more control over the jitter
+ggplot(data = global_catch_clean, # data frame
+       aes(x = fishery_full_name, # x-axis
+           y = catch_mil)) + # y-axis
+  geom_jitter(position = position_jitter(
+    width = 0.2, # shakes the points around left and right 
+    height = 0, # doesn't shake the points up and down
+    seed = 1 # makes sure the "random" arrangement stays the same
+  ))
+```
+
+```{r}
+ggplot(data = global_catch_clean, # data frame
+       aes(x = year, # x-axis
+           y = catch_mil,
+           color = fishery_type)) + # y-axis
+  geom_point()
+```
+
+```{r}
+ggplot(data = global_catch_clean, # data frame
+       aes(x = fishery_full_name, # x-axis
+           y = catch_mil)) +
+  geom_boxplot()
+```
+

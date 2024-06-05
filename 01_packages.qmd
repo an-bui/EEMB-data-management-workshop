@@ -1,0 +1,40 @@
+---
+title: "Packages we discussed"
+execute:
+  message: false
+  warning: false
+---
+
+## Packages we discussed
+
+```{r}
+library(tidyverse)
+```
+
+A package of packages:  
+- dplyr  
+- forcats  
+- ggplot2
+- lubridate
+- purrr
+- readr
+- stringr
+- tibble
+- tidyr
+
+```{r}
+library(here)
+```
+
+Organizes your file paths
+
+```{r}
+library(repmis)
+```
+
+Reads in data from Dropbox
+
+```{r}
+library(janitor)
+```
+

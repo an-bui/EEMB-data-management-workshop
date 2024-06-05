@@ -1,0 +1,51 @@
+---
+title: "Looking at your data"
+execute:
+  message: false
+  warning: false
+---
+
+
+## Look at your data
+
+In this example, we're going to use global fishery catch data from [Tidy Tuesday 2021-10-12](https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-12/readme.md).  
+
+First: we'll read in the data:
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+
+```{r}
+global_catch <- read_csv(here("data", # data is in the "data" folder in this repository
+                         "global-fishery-catch-by-sector.csv")) # file name
+```
+
+Then, we can look at it using `glimpse().`
+
+```{r}
+glimpse(global_catch)
+```
+
+`glimpse()` gives similar information as `str()`: use either (or both!).
+
+```{r}
+str(global_catch)
+```
+
+```{r}
+colnames(global_catch)
+```
+
+```{r}
+sample_n(global_catch,
+         size = 10)
+```
+
+```{r}
+skimr::skim(global_catch)
+```
+
+
