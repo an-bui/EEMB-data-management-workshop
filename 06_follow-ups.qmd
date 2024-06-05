@@ -1,0 +1,52 @@
+---
+title: "Follow up notes"
+---
+
+Please complete [the survey](https://docs.google.com/forms/d/e/1FAIpQLSfoRVLy8oFTa-vMj-bQ_1gfQRhQHDMmV-drxYNW-7gNh-pTvg/viewform?usp=sf_link) if you attended the workshop!
+
+## Data storage
+
+- [Evernote](https://evernote.com/) or [Microsoft OneNote](https://www.onenote.com/?public=1&wdorigin=ondcauth2&wdorigin=ondc): apps for field and lab notebooks, easy scans, version control  
+
+- [GPS tracks](https://www.dmsoftwaresolutions.com/) and [Avenza](https://www.avenza.com/avenza-maps/): allow you to track your route, drop pins for waypoints, upload pictures of field notebooks at each point  
+
+- [Field Note app](https://apps.apple.com/us/app/fieldnote-app/id1470487577) (for iPads?): alternative to survey123 for field data collection  
+
+- [7-zip](https://www.7-zip.org/): passcode protect sensitive data in a .zip file
+
+## General tips for data collection and storage
+
+- specify the units in which you are collecting measurements!  
+- make yourself a field journal with some prompts that you can fill in at the end of the day  
+  - make this _even easier_ by making it a Google form for yourself? Notion page?  
+  - potential prompts  
+    - what was the weather like?  
+    - what did you work on today?  
+    - what did you forget that you need to bring with you?  
+- if moving things around, be adjust viewing/editing permissions (if they have changed between one folder to another)  
+
+## General tips for data cleaning/processing
+
+- take out what you don't want with `filter()` and `select()`  
+  - [general explanation of how to use the `!` (aka the "not" operator)](https://argoshare.is.ed.ac.uk/healthyr_book/missing-values-nas-and-filters.html)  
+  - [if you're using the `%in%` operator](https://stackoverflow.com/questions/71777528/how-to-filter-not-in)  
+  - [how to remove rows, generally speaking](https://www.statology.org/dplyr-remove-rows/)  
+- if you have multiple themes for different figures, [create your own theme](https://emanuelaf.github.io/own-ggplot-theme.html)  
+- work out your data processing workflow early on, when you don't have a ton of data! (e.g. with sensor data, sequencing data, any type of data)  
+
+## General tips for data entry and checking
+
+- data validation to create drop-down menus to minimize errors in data entry in [Google Sheets](https://www.liveflow.io/product-guides/how-to-use-data-validation-in-google-sheets) and [Excel](https://support.microsoft.com/en-us/office/create-a-drop-down-list-7693307a-59ef-400a-b769-c5402dce407b)  
+- [`trimws()` in `baseR`](https://r-coder.com/trimws-r/#:~:text=By%20default%2C%20the%20trimws%20function,trailing%20or%20only%20leading%20whitespaces.) takes out white spaces before and after a character  
+
+## General tips for updating results
+
+- create an outline in Quarto or RMarkdown of your stats outputs to refer to when you're writing your paper!  
+
+
+
+
+
+
+
+

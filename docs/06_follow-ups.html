@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>EEMB Data Management Workshop - Looking at your data</title>
+<title>EEMB Data Management Workshop - Follow up notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04_cleaning.html" rel="next">
-<link href="./02_reading-your-data.html" rel="prev">
+<link href="./07_references.html" rel="next">
+<link href="./05_visualizing.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,7 +81,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_looking-at-your-data.html"><span class="chapter-title">Looking at your data</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_follow-ups.html"><span class="chapter-title">Follow up notes</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -161,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Looking at your data</span></a>
+  <a href="./03_looking-at-your-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Looking at your data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -176,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_follow-ups.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Follow up notes</span></a>
+  <a href="./06_follow-ups.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Follow up notes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -194,12 +160,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-source" id="toc-data-source" class="nav-link active" data-scroll-target="#data-source">Data source</a></li>
-  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set up</a></li>
-  <li><a href="#quick-look-at-the-data-using-glimpse-and-str" id="toc-quick-look-at-the-data-using-glimpse-and-str" class="nav-link" data-scroll-target="#quick-look-at-the-data-using-glimpse-and-str">Quick look at the data using <code>glimpse()</code> and <code>str()</code></a></li>
-  <li><a href="#getting-the-column-names-using-colnames" id="toc-getting-the-column-names-using-colnames" class="nav-link" data-scroll-target="#getting-the-column-names-using-colnames">Getting the column names using <code>colnames()</code></a></li>
-  <li><a href="#a-random-sample-of-rows-using-sample_n" id="toc-a-random-sample-of-rows-using-sample_n" class="nav-link" data-scroll-target="#a-random-sample-of-rows-using-sample_n">A random sample of rows using <code>sample_n()</code></a></li>
-  <li><a href="#summary-stats-and-more-with-skim" id="toc-summary-stats-and-more-with-skim" class="nav-link" data-scroll-target="#summary-stats-and-more-with-skim">Summary stats and more with <code>skim()</code></a></li>
+  <li><a href="#data-storage" id="toc-data-storage" class="nav-link active" data-scroll-target="#data-storage">Data storage</a></li>
+  <li><a href="#general-tips-for-data-collection-and-storage" id="toc-general-tips-for-data-collection-and-storage" class="nav-link" data-scroll-target="#general-tips-for-data-collection-and-storage">General tips for data collection and storage</a></li>
+  <li><a href="#general-tips-for-data-cleaningprocessing" id="toc-general-tips-for-data-cleaningprocessing" class="nav-link" data-scroll-target="#general-tips-for-data-cleaningprocessing">General tips for data cleaning/processing</a></li>
+  <li><a href="#general-tips-for-data-entry-and-checking" id="toc-general-tips-for-data-entry-and-checking" class="nav-link" data-scroll-target="#general-tips-for-data-entry-and-checking">General tips for data entry and checking</a></li>
+  <li><a href="#general-tips-for-updating-results" id="toc-general-tips-for-updating-results" class="nav-link" data-scroll-target="#general-tips-for-updating-results">General tips for updating results</a></li>
   </ul>
 </nav>
     </div>
@@ -208,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Looking at your data</span></h1>
+<h1 class="title"><span class="chapter-title">Follow up notes</span></h1>
 </div>
 
 
@@ -225,317 +190,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="data-source" class="level2">
-<h2 class="anchored" data-anchor-id="data-source">Data source</h2>
-<p>In this example, we’re going to use global fishery catch data from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2021/2021-10-12/readme.md">Tidy Tuesday 2021-10-12</a>.</p>
+<p>Please complete <a href="https://docs.google.com/forms/d/e/1FAIpQLSfoRVLy8oFTa-vMj-bQ_1gfQRhQHDMmV-drxYNW-7gNh-pTvg/viewform?usp=sf_link">the survey</a> if you attended the workshop!</p>
+<section id="data-storage" class="level2">
+<h2 class="anchored" data-anchor-id="data-storage">Data storage</h2>
+<ul>
+<li><p><a href="https://evernote.com/">Evernote</a> or <a href="https://www.onenote.com/?public=1&amp;wdorigin=ondcauth2&amp;wdorigin=ondc">Microsoft OneNote</a>: apps for field and lab notebooks, easy scans, version control</p></li>
+<li><p><a href="https://www.dmsoftwaresolutions.com/">GPS tracks</a> and <a href="https://www.avenza.com/avenza-maps/">Avenza</a>: allow you to track your route, drop pins for waypoints, upload pictures of field notebooks at each point</p></li>
+<li><p><a href="https://apps.apple.com/us/app/fieldnote-app/id1470487577">Field Note app</a> (for iPads?): alternative to survey123 for field data collection</p></li>
+<li><p><a href="https://www.7-zip.org/">7-zip</a>: passcode protect sensitive data in a .zip file</p></li>
+</ul>
 </section>
-<section id="set-up" class="level2">
-<h2 class="anchored" data-anchor-id="set-up">Set up</h2>
-<p>First, we’ll read in the packages we need:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># general use</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here) <span class="co"># file path organization</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(skimr) <span class="co"># quick summary stats </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Then, we’ll read in the data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a new object called `global_catch`</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>global_catch <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="co"># data is in the "data" folder in this repository</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"global-fishery-catch-by-sector.csv"</span>)) <span class="co"># file name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="general-tips-for-data-collection-and-storage" class="level2">
+<h2 class="anchored" data-anchor-id="general-tips-for-data-collection-and-storage">General tips for data collection and storage</h2>
+<ul>
+<li>specify the units in which you are collecting measurements!<br>
+</li>
+<li>make yourself a field journal with some prompts that you can fill in at the end of the day
+<ul>
+<li>make this <em>even easier</em> by making it a Google form for yourself? Notion page?<br>
+</li>
+<li>potential prompts
+<ul>
+<li>what was the weather like?<br>
+</li>
+<li>what did you work on today?<br>
+</li>
+<li>what did you forget that you need to bring with you?<br>
+</li>
+</ul></li>
+</ul></li>
+<li>if moving things around, be adjust viewing/editing permissions (if they have changed between one folder to another)</li>
+</ul>
 </section>
-<section id="quick-look-at-the-data-using-glimpse-and-str" class="level2">
-<h2 class="anchored" data-anchor-id="quick-look-at-the-data-using-glimpse-and-str">Quick look at the data using <code>glimpse()</code> and <code>str()</code></h2>
-<p><code>glimpse()</code> and <code>str()</code> both give a sense of the kinds of variables (numeric, factor, etc.) that are in each column, along with the contents of the columns and the column names.</p>
-<p><code>glimpse()</code> gives similar information as <code>str()</code>: use either (or both!).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 61
-Columns: 8
-$ Entity                                &lt;chr&gt; "World", "World", "World", "Worl…
-$ Code                                  &lt;chr&gt; "OWID_WRL", "OWID_WRL", "OWID_WR…
-$ Year                                  &lt;dbl&gt; 1950, 1951, 1952, 1953, 1954, 19…
-$ `Artisanal (small-scale commercial)`  &lt;dbl&gt; 7526795, 8278304, 8272109, 84692…
-$ Discards                              &lt;dbl&gt; 5874170, 6278225, 7230311, 71729…
-$ `Industrial (large-scale commercial)` &lt;dbl&gt; 14566338, 15417937, 16463942, 17…
-$ Recreational                          &lt;dbl&gt; 268260, 284319, 293558, 292070, …
-$ Subsistence                           &lt;dbl&gt; 2677833, 2704471, 2728141, 27530…</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>spc_tbl_ [61 × 8] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
- $ Entity                             : chr [1:61] "World" "World" "World" "World" ...
- $ Code                               : chr [1:61] "OWID_WRL" "OWID_WRL" "OWID_WRL" "OWID_WRL" ...
- $ Year                               : num [1:61] 1950 1951 1952 1953 1954 ...
- $ Artisanal (small-scale commercial) : num [1:61] 7526795 8278304 8272109 8469284 9226926 ...
- $ Discards                           : num [1:61] 5874170 6278225 7230311 7172937 8012930 ...
- $ Industrial (large-scale commercial): num [1:61] 14566338 15417937 16463942 17163789 18340199 ...
- $ Recreational                       : num [1:61] 268260 284319 293558 292070 304398 ...
- $ Subsistence                        : num [1:61] 2677833 2704471 2728141 2753098 2895153 ...
- - attr(*, "spec")=
-  .. cols(
-  ..   Entity = col_character(),
-  ..   Code = col_character(),
-  ..   Year = col_double(),
-  ..   `Artisanal (small-scale commercial)` = col_double(),
-  ..   Discards = col_double(),
-  ..   `Industrial (large-scale commercial)` = col_double(),
-  ..   Recreational = col_double(),
-  ..   Subsistence = col_double()
-  .. )
- - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
-</div>
-</div>
+<section id="general-tips-for-data-cleaningprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="general-tips-for-data-cleaningprocessing">General tips for data cleaning/processing</h2>
+<ul>
+<li>take out what you don’t want with <code>filter()</code> and <code>select()</code>
+<ul>
+<li><a href="https://argoshare.is.ed.ac.uk/healthyr_book/missing-values-nas-and-filters.html">general explanation of how to use the <code>!</code> (aka the “not” operator)</a><br>
+</li>
+<li><a href="https://stackoverflow.com/questions/71777528/how-to-filter-not-in">if you’re using the <code>%in%</code> operator</a><br>
+</li>
+<li><a href="https://www.statology.org/dplyr-remove-rows/">how to remove rows, generally speaking</a><br>
+</li>
+</ul></li>
+<li>if you have multiple themes for different figures, <a href="https://emanuelaf.github.io/own-ggplot-theme.html">create your own theme</a><br>
+</li>
+<li>work out your data processing workflow early on, when you don’t have a ton of data! (e.g.&nbsp;with sensor data, sequencing data, any type of data)</li>
+</ul>
 </section>
-<section id="getting-the-column-names-using-colnames" class="level2">
-<h2 class="anchored" data-anchor-id="getting-the-column-names-using-colnames">Getting the column names using <code>colnames()</code></h2>
-<p>You’ll be using the column names of your data frame <em>a lot</em> - you can use <code>colnames()</code> to figure out what the names actually are.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "Entity"                              "Code"                               
-[3] "Year"                                "Artisanal (small-scale commercial)" 
-[5] "Discards"                            "Industrial (large-scale commercial)"
-[7] "Recreational"                        "Subsistence"                        </code></pre>
-</div>
-</div>
+<section id="general-tips-for-data-entry-and-checking" class="level2">
+<h2 class="anchored" data-anchor-id="general-tips-for-data-entry-and-checking">General tips for data entry and checking</h2>
+<ul>
+<li>data validation to create drop-down menus to minimize errors in data entry in <a href="https://www.liveflow.io/product-guides/how-to-use-data-validation-in-google-sheets">Google Sheets</a> and <a href="https://support.microsoft.com/en-us/office/create-a-drop-down-list-7693307a-59ef-400a-b769-c5402dce407b">Excel</a><br>
+</li>
+<li><a href="https://r-coder.com/trimws-r/#:~:text=By%20default%2C%20the%20trimws%20function,trailing%20or%20only%20leading%20whitespaces."><code>trimws()</code> in <code>baseR</code></a> takes out white spaces before and after a character</li>
+</ul>
 </section>
-<section id="a-random-sample-of-rows-using-sample_n" class="level2">
-<h2 class="anchored" data-anchor-id="a-random-sample-of-rows-using-sample_n">A random sample of rows using <code>sample_n()</code></h2>
-<p>You can get a quick look at a random sample of rows from the data frame using <code>sample_n()</code> to get a sense of what each row might look like.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(global_catch, <span class="co"># the data frame</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">size =</span> <span class="dv">10</span>) <span class="co"># the number of rows to view</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 8
-   Entity Code      Year Artisanal (small-scal…¹ Discards Industrial (large-sc…²
-   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;                   &lt;dbl&gt;    &lt;dbl&gt;                  &lt;dbl&gt;
- 1 World  OWID_WRL  1986                16227297 15091641               78606140
- 2 World  OWID_WRL  1972                12753562 12357980               51789011
- 3 World  OWID_WRL  1969                12211407 12761884               52626777
- 4 World  OWID_WRL  1987                17449809 15669889               79755589
- 5 World  OWID_WRL  1992                18417117 15717869               81793283
- 6 World  OWID_WRL  1999                20588769 12426124               84833508
- 7 World  OWID_WRL  1980                14688464 10500231               60489781
- 8 World  OWID_WRL  1976                13761132 11095856               59084000
- 9 World  OWID_WRL  1975                13432664 11313080               55854975
-10 World  OWID_WRL  1998                20332081 13154260               79574228
-# ℹ abbreviated names: ¹​`Artisanal (small-scale commercial)`,
-#   ²​`Industrial (large-scale commercial)`
-# ℹ 2 more variables: Recreational &lt;dbl&gt;, Subsistence &lt;dbl&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="summary-stats-and-more-with-skim" class="level2">
-<h2 class="anchored" data-anchor-id="summary-stats-and-more-with-skim">Summary stats and more with <code>skim()</code></h2>
-<p>The <code>skim()</code> function in the <code>skimr</code> package gives you a bunch of summary information about the data in each column. Note that this is <em>a lot</em> of information, but if you want some broad brush strokes level summary (e.g.&nbsp;what’s the mean in each column?), then <code>skim()</code> might be a good option!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(global_catch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Data summary</caption>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Name</td>
-<td style="text-align: left;">global_catch</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Number of rows</td>
-<td style="text-align: left;">61</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Number of columns</td>
-<td style="text-align: left;">8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">_______________________</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Column type frequency:</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">character</td>
-<td style="text-align: left;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">numeric</td>
-<td style="text-align: left;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">________________________</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Group variables</td>
-<td style="text-align: left;">None</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: character</strong></p>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 13%">
-<col style="width: 19%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 12%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">max</th>
-<th style="text-align: right;">empty</th>
-<th style="text-align: right;">n_unique</th>
-<th style="text-align: right;">whitespace</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Entity</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Code</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Variable type: numeric</strong></p>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 7%">
-<col style="width: 10%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 4%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">skim_variable</th>
-<th style="text-align: right;">n_missing</th>
-<th style="text-align: right;">complete_rate</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">sd</th>
-<th style="text-align: right;">p0</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p100</th>
-<th style="text-align: left;">hist</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Year</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1980.0</td>
-<td style="text-align: right;">17.75</td>
-<td style="text-align: right;">1950</td>
-<td style="text-align: right;">1965</td>
-<td style="text-align: right;">1980</td>
-<td style="text-align: right;">1995</td>
-<td style="text-align: right;">2010</td>
-<td style="text-align: left;">▇▇▇▇▇</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Artisanal (small-scale commercial)</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">15180177.2</td>
-<td style="text-align: right;">4255916.20</td>
-<td style="text-align: right;">7526795</td>
-<td style="text-align: right;">11653978</td>
-<td style="text-align: right;">14688464</td>
-<td style="text-align: right;">19665232</td>
-<td style="text-align: right;">21828623</td>
-<td style="text-align: left;">▅▇▆▅▇</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Discards</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">11834829.3</td>
-<td style="text-align: right;">2601005.59</td>
-<td style="text-align: right;">5874170</td>
-<td style="text-align: right;">10014530</td>
-<td style="text-align: right;">11712961</td>
-<td style="text-align: right;">13595692</td>
-<td style="text-align: right;">16962727</td>
-<td style="text-align: left;">▂▃▇▆▃</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Industrial (large-scale commercial)</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">59491189.3</td>
-<td style="text-align: right;">24241541.41</td>
-<td style="text-align: right;">14566338</td>
-<td style="text-align: right;">41475194</td>
-<td style="text-align: right;">62459956</td>
-<td style="text-align: right;">80593708</td>
-<td style="text-align: right;">90068159</td>
-<td style="text-align: left;">▃▂▃▃▇</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Recreational</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">609926.8</td>
-<td style="text-align: right;">194120.54</td>
-<td style="text-align: right;">268260</td>
-<td style="text-align: right;">405857</td>
-<td style="text-align: right;">731511</td>
-<td style="text-align: right;">769491</td>
-<td style="text-align: right;">849021</td>
-<td style="text-align: left;">▃▂▁▁▇</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subsistence</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3777210.0</td>
-<td style="text-align: right;">416715.61</td>
-<td style="text-align: right;">2677833</td>
-<td style="text-align: right;">3630156</td>
-<td style="text-align: right;">3911536</td>
-<td style="text-align: right;">4072844</td>
-<td style="text-align: right;">4226487</td>
-<td style="text-align: left;">▂▂▁▆▇</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<section id="general-tips-for-updating-results" class="level2">
+<h2 class="anchored" data-anchor-id="general-tips-for-updating-results">General tips for updating results</h2>
+<ul>
+<li>create an outline in Quarto or RMarkdown of your stats outputs to refer to when you’re writing your paper!</li>
+</ul>
 
 
 </section>
@@ -952,13 +668,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_reading-your-data.html" class="pagination-link" aria-label="Reading your data into RStudio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reading your data into RStudio</span></span>
+      <a href="./05_visualizing.html" class="pagination-link" aria-label="Visualizing your data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Visualizing your data</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04_cleaning.html" class="pagination-link" aria-label="Cleaning">
-        <span class="nav-page-text"><span class="chapter-title">Cleaning</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07_references.html" class="pagination-link" aria-label="Useful resources">
+        <span class="nav-page-text"><span class="chapter-title">Useful resources</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

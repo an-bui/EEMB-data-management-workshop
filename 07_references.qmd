@@ -1,0 +1,29 @@
+---
+title: "Useful resources"
+---
+
+## Data sharing platforms
+
+- [Zenodo](https://zenodo.org/)  
+- [Dryad](https://datadryad.org/stash)  
+- [Environmental Data Initiative](https://edirepository.org/)  
+- [Figshare](https://figshare.com/)  
+
+## Data reproducibility
+
+- Ivimey-Cook et al. 2023. "Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology." _Journal of Evolutionary Biology._ [https://doi.org/10.1111/jeb.14230](https://doi.org/10.1111/jeb.14230)  
+- Jenkins et al. 2023. "Reproducibility in ecology and evolution: Minimum standards for data and code". _Ecology and Evolution_. [https://doi.org/10.1002/ece3.9961](https://doi.org/10.1002/ece3.9961)
+- Mislan et al. 2016. "Elevating the status of code in ecology." _Trends in Ecology and Evolution_. [https://doi.org/10.1016/j.tree.2015.11.006](https://doi.org/10.1016/j.tree.2015.11.006)  
+- Stall et al. 2020. "Generalist repository comparison chart." from the _NIH Workshop on the Role of Generalist Repositories to Enhance Data Discoverability and Reuse_. [https://zenodo.org/doi/10.5281/zenodo.3946719](https://zenodo.org/doi/10.5281/zenodo.3946719)  
+- [Dmytro Kryvokhyzha's review to find "The best free Research Data Repository"](https://evodify.com/free-research-repository/)  
+- British Ecological Society guide to [Reproducible Code](https://www.britishecologicalsociety.org/wp-content/uploads/2019/06/BES-Guide-Reproducible-Code-2019.pdf)  
+- SORTEE Code Club's [17-step checklist](https://osf.io/kncw6/wiki/home/) for reproducible research
+
+## General resources
+
+- UCSB Library's Research Data Services [Data Literacy Series](https://rcd.ucsb.edu/data-literacy-series) infographics
+
+
+
+
+

@@ -57,6 +57,12 @@ Exploring your data is a _great_ way of getting to know it. There are a few basi
 - If you want to know **how a variable differs between groups**, you can make a **boxplot** or a **jitter** plot.  
 - If you want to know **how two continuous variables relate to each other**, you can make a **scatterplot**.  
 
+:::{.callout-note}
+### Other types of visualizations
+
+There are lots of other ways to visualize your data! See Yan Holtz's [From Data to Viz](https://www.data-to-viz.com/) for a flow chart to decide what kind of visualization is right for your data.
+:::
+
 ## Tools
 
 We'll use `ggplot()` from the `ggplot2` package in the `tidyverse` for these examples!

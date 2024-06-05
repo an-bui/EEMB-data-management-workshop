@@ -324,7 +324,7 @@
     "href": "05_visualizing.html#visually-exploring-your-data",
     "title": "Visualizing your data",
     "section": "",
-    "text": "If you want to know how your variable is distributed, you can make a histogram.\n\nIf you want to know how a variable differs between groups, you can make a boxplot or a jitter plot.\n\nIf you want to know how two continuous variables relate to each other, you can make a scatterplot.",
+    "text": "If you want to know how your variable is distributed, you can make a histogram.\n\nIf you want to know how a variable differs between groups, you can make a boxplot or a jitter plot.\n\nIf you want to know how two continuous variables relate to each other, you can make a scatterplot.\n\n\n\n\n\n\n\nOther types of visualizations\n\n\n\nThere are lots of other ways to visualize your data! See Yan Holtz’s From Data to Viz for a flow chart to decide what kind of visualization is right for your data.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Visualizing your data</span>"
     ]
@@ -377,6 +377,106 @@
     "text": "Exploring relationships between variables using scaterplots\n Function: geom_point()\nIn this example, the x-axis is year and the y-axis is catch (million tons), but you can explore any continuous variables this way!\n\nggplot(data = global_catch_clean, # data frame\n       aes(x = year, # x-axis\n           y = catch_mil, # y-axis\n           color = fishery_full_name)) + # coloring by fishery \n  geom_point() +\n\n  # extra stuff to make the plot look nicer\n  # controlling the color of the points\n  scale_color_manual(values = c(\"Artisanal fishery\" = \"#008080\",\n                                \"Industrial fishery\" = \"#004c4c\",\n                                \"Subsistence fishery\" = \"#b2d8d8\")) +\n  # labeling the y-axis and the legend\n  labs(x = \"Year\",\n       y = \"Catch (million tons)\",\n       color = \"Fishery type\")",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Visualizing your data</span>"
+    ]
+  },
+  {
+    "objectID": "06_follow-ups.html",
+    "href": "06_follow-ups.html",
+    "title": "Follow up notes",
+    "section": "",
+    "text": "Data storage",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Follow up notes</span>"
+    ]
+  },
+  {
+    "objectID": "06_follow-ups.html#data-storage",
+    "href": "06_follow-ups.html#data-storage",
+    "title": "Follow up notes",
+    "section": "",
+    "text": "Evernote or Microsoft OneNote: apps for field and lab notebooks, easy scans, version control\nGPS tracks and Avenza: allow you to track your route, drop pins for waypoints, upload pictures of field notebooks at each point\nField Note app (for iPads?): alternative to survey123 for field data collection\n7-zip: passcode protect sensitive data in a .zip file",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Follow up notes</span>"
+    ]
+  },
+  {
+    "objectID": "06_follow-ups.html#general-tips-for-data-collection-and-storage",
+    "href": "06_follow-ups.html#general-tips-for-data-collection-and-storage",
+    "title": "Follow up notes",
+    "section": "General tips for data collection and storage",
+    "text": "General tips for data collection and storage\n\nspecify the units in which you are collecting measurements!\n\nmake yourself a field journal with some prompts that you can fill in at the end of the day\n\nmake this even easier by making it a Google form for yourself? Notion page?\n\npotential prompts\n\nwhat was the weather like?\n\nwhat did you work on today?\n\nwhat did you forget that you need to bring with you?\n\n\n\nif moving things around, be adjust viewing/editing permissions (if they have changed between one folder to another)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Follow up notes</span>"
+    ]
+  },
+  {
+    "objectID": "06_follow-ups.html#general-tips-for-data-cleaningprocessing",
+    "href": "06_follow-ups.html#general-tips-for-data-cleaningprocessing",
+    "title": "Follow up notes",
+    "section": "General tips for data cleaning/processing",
+    "text": "General tips for data cleaning/processing\n\ntake out what you don’t want with filter() and select()\n\ngeneral explanation of how to use the ! (aka the “not” operator)\n\nif you’re using the %in% operator\n\nhow to remove rows, generally speaking\n\n\nif you have multiple themes for different figures, create your own theme\n\nwork out your data processing workflow early on, when you don’t have a ton of data! (e.g. with sensor data, sequencing data, any type of data)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Follow up notes</span>"
+    ]
+  },
+  {
+    "objectID": "06_follow-ups.html#general-tips-for-data-entry-and-checking",
+    "href": "06_follow-ups.html#general-tips-for-data-entry-and-checking",
+    "title": "Follow up notes",
+    "section": "General tips for data entry and checking",
+    "text": "General tips for data entry and checking\n\ndata validation to create drop-down menus to minimize errors in data entry in Google Sheets and Excel\n\ntrimws() in baseR takes out white spaces before and after a character",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Follow up notes</span>"
+    ]
+  },
+  {
+    "objectID": "06_follow-ups.html#general-tips-for-updating-results",
+    "href": "06_follow-ups.html#general-tips-for-updating-results",
+    "title": "Follow up notes",
+    "section": "General tips for updating results",
+    "text": "General tips for updating results\n\ncreate an outline in Quarto or RMarkdown of your stats outputs to refer to when you’re writing your paper!",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Follow up notes</span>"
+    ]
+  },
+  {
+    "objectID": "07_references.html",
+    "href": "07_references.html",
+    "title": "Useful resources",
+    "section": "",
+    "text": "Data sharing platforms",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Useful resources</span>"
+    ]
+  },
+  {
+    "objectID": "07_references.html#data-sharing-platforms",
+    "href": "07_references.html#data-sharing-platforms",
+    "title": "Useful resources",
+    "section": "",
+    "text": "Zenodo\n\nDryad\n\nEnvironmental Data Initiative\n\nFigshare",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Useful resources</span>"
+    ]
+  },
+  {
+    "objectID": "07_references.html#data-reproducibility",
+    "href": "07_references.html#data-reproducibility",
+    "title": "Useful resources",
+    "section": "Data reproducibility",
+    "text": "Data reproducibility\n\nIvimey-Cook et al. 2023. “Implementing code review in the scientific workflow: Insights from ecology and evolutionary biology.” Journal of Evolutionary Biology. https://doi.org/10.1111/jeb.14230\n\nJenkins et al. 2023. “Reproducibility in ecology and evolution: Minimum standards for data and code”. Ecology and Evolution. https://doi.org/10.1002/ece3.9961\nMislan et al. 2016. “Elevating the status of code in ecology.” Trends in Ecology and Evolution. https://doi.org/10.1016/j.tree.2015.11.006\n\nStall et al. 2020. “Generalist repository comparison chart.” from the NIH Workshop on the Role of Generalist Repositories to Enhance Data Discoverability and Reuse. https://zenodo.org/doi/10.5281/zenodo.3946719\n\nDmytro Kryvokhyzha’s review to find “The best free Research Data Repository”\n\nBritish Ecological Society guide to Reproducible Code\n\nSORTEE Code Club’s 17-step checklist for reproducible research",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Useful resources</span>"
+    ]
+  },
+  {
+    "objectID": "07_references.html#general-resources",
+    "href": "07_references.html#general-resources",
+    "title": "Useful resources",
+    "section": "General resources",
+    "text": "General resources\n\nUCSB Library’s Research Data Services Data Literacy Series infographics",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Useful resources</span>"
     ]
   }
 ]

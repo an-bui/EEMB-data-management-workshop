@@ -14,7 +14,8 @@ book:
     - 03_looking-at-your-data.qmd
     - 04_cleaning.qmd
     - 05_visualizing.qmd
-    - references.qmd
+    - 06_follow-ups.qmd
+    - 07_references.qmd
 
 bibliography: references.bib
 
