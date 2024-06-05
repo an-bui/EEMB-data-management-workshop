@@ -1,10 +1,14 @@
 ---
-title: "Visualizing"
+title: "Visualizing your data"
 ---
 
-## Visualize it
+![](images/352c905d-7be3-4808-9514-1fac3b0fe2fc_rw_1920.png){fig-align="center"}
+
+[Artwork by [Allison Horst](https://twitter.com/allison_horst)]{style="color: grey; font-size: 12px"} 
 
 ```{r}
+#| echo: false
+
 library(tidyverse)
 library(janitor)
 library(here)
@@ -19,13 +23,14 @@ global_catch_clean <- global_catch %>%
   
   # divides catch by 1000000 to calculate catch in million tons
   mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000) %>% 
+         industrial = industrial_large_scale_commercial/1000000,
+         subsistence = subsistence/1000000) %>% 
   
   # selecting columns
-  select(year, artisanal, industrial) %>% 
+  select(year, artisanal, industrial, subsistence) %>% 
   
   # put the data frame in long format: each row is an observation
-  pivot_longer(cols = artisanal:industrial) %>% 
+  pivot_longer(cols = artisanal:subsistence) %>% 
   
   # renames columns so that they are easier to understand
   rename(catch_mil = value,
@@ -34,18 +39,53 @@ global_catch_clean <- global_catch %>%
   # creates new column of full names for fisheries
   mutate(fishery_full_name = case_when(
     fishery_type == "artisanal" ~ "Artisanal fishery",
-    fishery_type == "industrial" ~ "Industrial fishery"
+    fishery_type == "industrial" ~ "Industrial fishery",
+    fishery_type == "subsistence" ~ "Subsistence fishery"
   )) %>% 
   
   # filters data frame for observations after 1980
   filter(year > 1980)
 ```
 
-Histogram:
+
+
+## Visually exploring your data
+
+Exploring your data is a _great_ way of getting to know it. There are a few basic ways you can visualize depending on what your variables are:  
+
+- If you want to know **how your variable is distributed**, you can make a **histogram.**  
+- If you want to know **how a variable differs between groups**, you can make a **boxplot** or a **jitter** plot.  
+- If you want to know **how two continuous variables relate to each other**, you can make a scatterplot.  
+
+## Tools
+
+We'll use `ggplot()` from the `ggplot2` package in the `tidyverse` for these examples!
+
+:::{.callout-note}
+### Making your `ggplot()` objects look cohesive
+
+I like to use `theme_set()` to set a global "look" for my plots. This ensures that every plot in the document has the same basic aesthetic changes, while still leaving room for customization in each plot.  
+
+In a code chunk at the beginning of your document, you can use `theme_set()` to apply `theme()` elements to all the plots you make:
 
 ```{r}
-# for this example, only going to use the artisanal fishery
+theme_set(
+ theme_bw() + # cleaner theme
+ theme(panel.grid = element_blank()) # taking the gridlines out
+)
+```
+
+:::
+
+## Exploring distributions using histograms
+
+For this example, we'll create a histogram for the artisanal fishery.  
+
+{{< fa rocket >}} **Function:** `geom_histogram()`  
+
+```{r}
 artisanal <- global_catch_clean %>% 
+  # filtering for artisanal fishery only
   filter(fishery_type == "artisanal")
 
 # global ggplot call
@@ -54,14 +94,30 @@ ggplot(data = artisanal, # the data frame
   
   # creating a histogram
   geom_histogram(bins = 7, # number of columns/bins
-                 fill = "darkgreen", # filling the bars in green
-                 color = "black") + # outline of the bars: black
+                 alpha = 0.7, # making the bars a little transparent
+                 fill = "#004c4c", # filling the bars 
+                 color = "#004c4c") + # outline of the bars
   
   # extra stuff to make your plot look nicer
   scale_y_continuous(expand = c(0, 0), # gets rid of the space below the bars
-                     limits = c(0, 9)) + # sets the limits of the y-axis
-  theme_bw() # clears out the grey background
+                     limits = c(0, 10)) + # sets the limits of the y-axis 
+  # labelling the x- and y-axes
+  labs(x = "Catch (million tons)",
+       y = "Count")
 ```
+
+## Exploring differences between groups using jitter plots
+
+{{< fa rocket >}} **Function:** `geom_jitter()`  
+
+:::{.callout-note}
+### How jitters work
+`geom_jitter()` randomly shakes points left and right and up and down to make them easier to see. This is fine, but sometimes weird to have a jitter applied up and down when the y-axis actually represents a value that you're interested in.  
+
+Below are two ways of creating a jitter plot: the simple way (with no customization for where the jittered points go), and the more custom way (where you can control the position of the jittered points relative to the x- and y-axes).
+:::
+
+Simple jitter (no customization):
 
 ```{r}
 # simple way to create a jitter plot
@@ -69,30 +125,79 @@ ggplot(data = global_catch_clean, # data frame
        aes(x = fishery_full_name, # x-axis
            y = catch_mil)) + # y-axis
   geom_jitter()
+```
 
+Custom jitter with `position = position_jitter()`: 
+
+```{r}
 # a way with a little more control over the jitter
 ggplot(data = global_catch_clean, # data frame
        aes(x = fishery_full_name, # x-axis
-           y = catch_mil)) + # y-axis
+           y = catch_mil, # y-axis
+           color = fishery_full_name)) + # coloring points by fishery - this is required for the scale_color_manual code to work!
   geom_jitter(position = position_jitter(
     width = 0.2, # shakes the points around left and right 
     height = 0, # doesn't shake the points up and down
-    seed = 1 # makes sure the "random" arrangement stays the same
-  ))
+    seed = 1)) + # makes sure the "random" arrangement stays the same
+ 
+  # extra stuff to make the plot look nicer
+  # controlling the color of the points
+  scale_color_manual(values = c("Artisanal fishery" = "#008080",
+                                "Industrial fishery" = "#004c4c",
+                                "Subsistence fishery" = "#b2d8d8")) +
+  # labeling the y-axis
+  labs(y = "Catch (million tons)") +
+  theme(legend.position = "none", # taking out the legend
+        axis.title.x = element_blank()) # taking out the x-axis title (redundant)
 ```
+
+## Exploring differences between groups using boxplots
+
+{{< fa rocket >}} **Function:** `geom_boxplot()`  
+
+A boxplot shows the _median_ of a group, the interquartile range, and 1.5x the interquartile range.
+
+```{r}
+ggplot(data = global_catch_clean, # data frame
+       aes(x = fishery_full_name, # x-axis
+           y = catch_mil, # y-axis
+           fill = fishery_full_name)) + # filling the boxplot by fishery, again needed for the scale_fill_manual code to work!
+  geom_boxplot() +
+
+  # extra stuff to make the plot look nicer
+  # controlling the fill of the boxplots
+  scale_fill_manual(values = c("Artisanal fishery" = "#008080",
+                                "Industrial fishery" = "#004c4c",
+                                "Subsistence fishery" = "#b2d8d8")) +
+  # labeling the y-axis
+  labs(y = "Catch (million tons)") +
+  theme(legend.position = "none", # taking out the legend
+        axis.title.x = element_blank()) # taking out the x-axis title (redundant)
+```
+
+## Exploring relationships between variables using scaterplots
+
+{{< fa rocket >}} **Function:** `geom_point()`  
+
+In this example, the x-axis is year and the y-axis is catch (million tons), but you can explore any continuous variables this way!
 
 ```{r}
 ggplot(data = global_catch_clean, # data frame
        aes(x = year, # x-axis
-           y = catch_mil,
-           color = fishery_type)) + # y-axis
-  geom_point()
+           y = catch_mil, # y-axis
+           color = fishery_full_name)) + # coloring by fishery 
+  geom_point() +
+
+  # extra stuff to make the plot look nicer
+  # controlling the color of the points
+  scale_color_manual(values = c("Artisanal fishery" = "#008080",
+                                "Industrial fishery" = "#004c4c",
+                                "Subsistence fishery" = "#b2d8d8")) +
+  # labeling the y-axis and the legend
+  labs(x = "Year",
+       y = "Catch (million tons)",
+       color = "Fishery type") 
 ```
 
-```{r}
-ggplot(data = global_catch_clean, # data frame
-       aes(x = fishery_full_name, # x-axis
-           y = catch_mil)) +
-  geom_boxplot()
-```
+
 

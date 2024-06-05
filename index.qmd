@@ -4,9 +4,9 @@
 
 Artwork by [Allison Horst](https://twitter.com/allison_horst)    
 
-**What:** A data management workshop!  
+**What:** This is the accompanying code guide for all the functions we talked about in our workshop.  Hopefully you find this helpful!
 
-**For whom:** anyone who wants to learn about data management!  
+**For whom:** anyone who wants to get started with data processing in R!  
 
 **When:** Wednesday June 5 2024, 9 - 11 AM  
 
