@@ -3,6 +3,11 @@ title: "Cleaning"
 execute:
   message: false
   warning: false
+engine: knitr
+knitr:
+  opts_chunk: 
+    R.options:
+      width: 120
 ---
 
 ![](images/40488240-4609-4dc3-8920-693e078b55ce.jpg){fig-align="center"}
@@ -32,6 +37,17 @@ We're going to keep using the data from the "Looking at your data" section, but 
 - `rename()`: renames columns
 - `filter()`: filters data frame
 
+## The original data frame
+
+Just to remind ourselves, this is what the original data frame looks like:
+
+```{r}
+sample_n(
+  global_catch,
+  size = 10
+)
+```
+
 ## Making column names nicer 
 
 {{< fa rocket >}} **Function:** `clean_names()`  
@@ -40,7 +56,8 @@ We're going to keep using the data from the "Looking at your data" section, but 
 ```{r}
 global_catch %>% 
   # new function: clean_names
-  # makes the column names nicer! compare this with the column names from `colnames(global_catch)` output from above
+  # makes the column names nicer! 
+  # compare this with the column names from `colnames(global_catch)` output
   clean_names()
 ```
 
@@ -57,10 +74,11 @@ global_catch %>%
 
   # new function: mutate
   # create new columns to calculate catch divided by 1000000
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000)
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) 
 ```
+
 
 ## Selecting columns of interest
 
@@ -70,13 +88,13 @@ global_catch %>%
 ```{r}
 global_catch %>% 
   clean_names() %>% 
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% # same as above
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% # same as above
   
   # new function: select
   # select the columns you're interested in 
-  select(year, artisanal, industrial)
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons)
 ```
 
 ## Putting the data frame in long format
@@ -87,15 +105,15 @@ global_catch %>%
 ```{r}
 global_catch %>% 
   clean_names() %>% 
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% 
-  select(year, artisanal, industrial, subsistence) %>% # same as above
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% 
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons) %>% # same as above
   
   # new function: pivot_longer
   # put the data frame in long format: each row is an observation
   # in this case, each row is a fishery with some catch (in million tons) in a given year
-  pivot_longer(cols = artisanal:subsistence)
+  pivot_longer(cols = artisanal_mil_tons:subsistence_mil_tons)
 ```
 
 :::{.callout-note}
@@ -111,11 +129,11 @@ There are still 3 columns in this data frame, but now there's a column called `n
 ```{r}
 global_catch %>% 
   clean_names() %>% 
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% 
-  select(year, artisanal, industrial, subsistence) %>% 
-  pivot_longer(cols = artisanal:subsistence) %>% # same as above
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% 
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons) %>% 
+  pivot_longer(cols = artisanal_mil_tons:subsistence_mil_tons) %>% # same as above
   
   # new function: rename
   # renames columns so that they are easier to understand
@@ -134,11 +152,11 @@ This creates a new column with the "full name" for each fishery!
 ```{r}
 global_catch %>% 
   clean_names() %>% 
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% 
-  select(year, artisanal, industrial, subsistence) %>% 
-  pivot_longer(cols = artisanal:subsistence) %>% 
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% 
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons) %>% 
+  pivot_longer(cols = artisanal_mil_tons:subsistence_mil_tons) %>% 
   rename(catch_mil = value,
          fishery_type = name) %>% # same as above
   
@@ -164,11 +182,11 @@ This filters the data frame to only include observations after 1980 in the `year
 ```{r}
 global_catch %>% 
   clean_names() %>% 
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% 
-  select(year, artisanal, industrial, subsistence) %>% 
-  pivot_longer(cols = artisanal:subsistence) %>% 
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% 
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons) %>% 
+  pivot_longer(cols = artisanal_mil_tons:subsistence_mil_tons) %>% 
   rename(catch_mil = value,
          fishery_type = name) %>% 
   mutate(fishery_full_name = case_when(
@@ -197,15 +215,15 @@ global_catch_clean <- global_catch %>%
   clean_names() %>% 
   
   # divides catch by 1000000 to calculate catch in million tons
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% 
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% 
   
   # selecting columns
-  select(year, artisanal, industrial, subsistence) %>% 
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons) %>% 
   
   # put the data frame in long format: each row is an observation
-  pivot_longer(cols = artisanal:subsistence) %>% 
+  pivot_longer(cols = artisanal_mil_tons:subsistence_mil_tons) %>% 
   
   # renames columns so that they are easier to understand
   rename(catch_mil = value,

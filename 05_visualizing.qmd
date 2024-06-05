@@ -22,15 +22,15 @@ global_catch_clean <- global_catch %>%
   clean_names() %>% 
   
   # divides catch by 1000000 to calculate catch in million tons
-  mutate(artisanal = artisanal_small_scale_commercial/1000000,
-         industrial = industrial_large_scale_commercial/1000000,
-         subsistence = subsistence/1000000) %>% 
+  mutate(artisanal_mil_tons = artisanal_small_scale_commercial/1000000,
+         industrial_mil_tons = industrial_large_scale_commercial/1000000,
+         subsistence_mil_tons = subsistence/1000000) %>% 
   
   # selecting columns
-  select(year, artisanal, industrial, subsistence) %>% 
+  select(year, artisanal_mil_tons, industrial_mil_tons, subsistence_mil_tons) %>% 
   
   # put the data frame in long format: each row is an observation
-  pivot_longer(cols = artisanal:subsistence) %>% 
+  pivot_longer(cols = artisanal_mil_tons:subsistence_mil_tons) %>% 
   
   # renames columns so that they are easier to understand
   rename(catch_mil = value,
