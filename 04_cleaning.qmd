@@ -7,7 +7,7 @@ engine: knitr
 knitr:
   opts_chunk: 
     R.options:
-      width: 120
+      width: 300
 ---
 
 ![](images/40488240-4609-4dc3-8920-693e078b55ce.jpg){fig-align="center"}
